@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "fplhub-api"
+version = "0.1.0"
+description = ""
+authors = ["Sam Wade <wadee732@gmail.com>"]
+readme = "README.md"
+# packages = [{ include = "src" }]
+package-mode = false
+
+[tool.poetry.scripts]
+seed-db = "seed_db:main"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["standard"], version = "^0.115.2"}
+ruff = "^0.6.9"
+uvicorn = "^0.32.0"
+sqlalchemy = "^2.0.36"
+pydantic = "^2.9.2"
+aiomysql = "^0.2.0"
+alembic = "^1.13.3"
+greenlet = "^3.1.1"
+cryptography = "^43.0.1"
+pydantic-settings = "^2.5.2"
+curl-cffi = "^0.7.3"
+pyyaml = "^6.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
