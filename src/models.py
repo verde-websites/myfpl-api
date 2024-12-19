@@ -32,7 +32,7 @@ class Team(Base):
 
 class Gameweek(Base):
     """Gameweek model"""
-    __tablename__ = "gameweeks"
+    __tablename__ = "game_weeks"
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     gameweek_number: Mapped[int]
     name: Mapped[str] = mapped_column(String(255))  # Added length
