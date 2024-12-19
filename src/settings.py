@@ -6,7 +6,7 @@ DEVELOPMENT = "development"
 class Settings(BaseSettings):
     """Settings for the FastAPI app"""
     build_target: str =  DEVELOPMENT
-    database_url: str = "sqlite:///fplhub.db"
+    database_url: str = "mysql+aiomysql://fplhub:passwordisgod@localhost:3306/fplhub"
     echo_sql: bool = False
     debug_logs: bool = False
     fpl_bootsrap_url: str = "https://fantasy.premierleague.com/api/bootstrap-static/"
