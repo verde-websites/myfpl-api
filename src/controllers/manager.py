@@ -42,6 +42,9 @@ async def get_manager(gameweek_id: int, manager_id: int):
                 "percentile_rank": picks_data["entry_history"]["percentile_rank"]
             }
 
+            # TODO: grab the element_in (player) and element_out (player) from the transfer object
+            # TODO: Query the Database using the player IDs for player names
+            # TODO: return the element_in_cost and element_out_cost from the transfer object
             transfers = [
                 transfer for transfer in transfers_data
                 if transfer.get("event") == gameweek_id
@@ -49,7 +52,7 @@ async def get_manager(gameweek_id: int, manager_id: int):
 
             # Grab all player IDs from picks object for the gameweek
             players = [pick["element"] for pick in picks_data["picks"]]
-            # Query the Database using the player IDs for live data
+            # TODO: Query the Database using the player IDs for live data
             # players_data = await get_players(players)
 
             return {
