@@ -45,11 +45,16 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
                 "percentile_rank": picks_data["entry_history"]["percentile_rank"]
             }
 
+            # Get all transfers that occured in the current gameweek
             gameweek_transfers = [
                 transfer for transfer in transfers_data
                 if transfer.get("event") == gameweek_id
             ]
 
+            # Get the number of transfers that occured in the current gameweek
+            transfer_count = len(gameweek_transfers)
+
+            # Loop through this gameweeks transfers and get the player IDs and costs
             gameweek_transfer_elements = [
                 {
                     "player_in_id": transfer.get("element_in"),
@@ -60,9 +65,7 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
                 for transfer in gameweek_transfers
             ]
 
-            transfer_count = len(gameweek_transfers)
-
-            # Extract unique player IDs
+            # Extract unique player IDs for Database Query
             player_ids = set()
             for transfer in gameweek_transfer_elements:
                 player_ids.add(transfer["player_in_id"])
@@ -71,23 +74,35 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
             # Fetch player data from the database
             players_data = await crud.get_players(db, list(player_ids))
 
-            # Create a mapping from player ID to player details
+            # Loop through players from the query and create a mapping from player ID to player details
             player_id_to_details = {
                 player.fpl_tracker_id: {
-                    "first_name": player.first_name,
-                    "second_name": player.second_name,
                     "web_name": player.web_name
                 }
                 for player in players_data
             }
 
-            # Integrate player names into transfer elements
+            transfer_details = []
+            # Integrate player names into transfer elements and format for response
             for transfer in gameweek_transfer_elements:
                 player_in = player_id_to_details.get(transfer["player_in_id"], {})
                 player_out = player_id_to_details.get(transfer["player_out_id"], {})
                 
                 transfer["player_in_web_name"] = player_in.get("web_name", "Unknown")
                 transfer["player_out_web_name"] = player_out.get("web_name", "Unknown")
+                transfer_info = {
+                    "player_in": {
+                        "player_in_id": transfer["player_in_id"],
+                        "player_in_cost": transfer["player_in_cost"],
+                        "player_in_web_name": transfer["player_in_web_name"],
+                    },
+                    "player_out": {
+                        "player_out_id": transfer["player_out_id"],
+                        "player_out_cost": transfer["player_out_cost"],
+                        "player_out_web_name": transfer["player_out_web_name"],
+                    }
+                }
+                transfer_details.append(transfer_info)
 
             # Grab all player IDs from picks object for the gameweek
             players = [pick["element"] for pick in picks_data["picks"]]
@@ -98,7 +113,7 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
                 "metadata": metadata,
                 "transfers": {
                     "number_of_transfers": transfer_count,
-                    "details": gameweek_transfer_elements
+                    "details": transfer_details
                 },
                 "players": players,
             }
