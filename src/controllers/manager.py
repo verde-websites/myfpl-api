@@ -77,6 +77,8 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
             # Loop through players from the query and create a mapping from player ID to player details
             player_id_to_details = {
                 player.fpl_tracker_id: {
+                    "first_name": player.first_name,
+                    "second_name": player.second_name,
                     "web_name": player.web_name
                 }
                 for player in players_data
@@ -88,17 +90,25 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
                 player_in = player_id_to_details.get(transfer["player_in_id"], {})
                 player_out = player_id_to_details.get(transfer["player_out_id"], {})
                 
+                transfer["player_in_first_name"] = player_in.get("first_name", "Unknown")
+                transfer["player_in_second_name"] = player_in.get("second_name", "Unknown")
                 transfer["player_in_web_name"] = player_in.get("web_name", "Unknown")
+                transfer["player_out_first_name"] = player_out.get("first_name", "Unknown")
+                transfer["player_out_second_name"] = player_out.get("second_name", "Unknown")
                 transfer["player_out_web_name"] = player_out.get("web_name", "Unknown")
                 transfer_info = {
                     "player_in": {
                         "player_in_id": transfer["player_in_id"],
                         "player_in_cost": transfer["player_in_cost"],
+                        "player_in_first_name": transfer["player_in_first_name"],
+                        "player_in_second_name": transfer["player_in_second_name"],
                         "player_in_web_name": transfer["player_in_web_name"],
                     },
                     "player_out": {
                         "player_out_id": transfer["player_out_id"],
                         "player_out_cost": transfer["player_out_cost"],
+                        "player_out_first_name": transfer["player_out_first_name"],
+                        "player_out_second_name": transfer["player_out_second_name"],
                         "player_out_web_name": transfer["player_out_web_name"],
                     }
                 }
