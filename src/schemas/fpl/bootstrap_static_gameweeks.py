@@ -1,4 +1,5 @@
 
+from datetime import datetime
 from pydantic import BaseModel
 from typing import List, Optional
 
@@ -16,7 +17,7 @@ class TopPlayerInfo(BaseModel):
 class BootstrapStaticGameweeksResponse(BaseModel):
     id: int
     name: str
-    deadline_time: str
+    deadline_time: datetime
     average_entry_score: int
     finished: bool
     data_checked: bool
