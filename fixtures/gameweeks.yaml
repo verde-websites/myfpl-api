@@ -1,0 +1,266 @@
+- id: 1
+  gameweek_number: 1
+  name: Gameweek 1
+  transfer_deadline: 2024-08-16 17:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 2
+  gameweek_number: 2
+  name: Gameweek 2
+  transfer_deadline: 2024-08-24 10:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 3
+  gameweek_number: 3
+  name: Gameweek 3
+  transfer_deadline: 2024-08-31 10:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 4
+  gameweek_number: 4
+  name: Gameweek 4
+  transfer_deadline: 2024-09-14 10:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 5
+  gameweek_number: 5
+  name: Gameweek 5
+  transfer_deadline: 2024-09-21 10:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 6
+  gameweek_number: 6
+  name: Gameweek 6
+  transfer_deadline: 2024-09-28 10:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 7
+  gameweek_number: 7
+  name: Gameweek 7
+  transfer_deadline: 2024-10-05 10:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 8
+  gameweek_number: 8
+  name: Gameweek 8
+  transfer_deadline: 2024-10-19 10:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 9
+  gameweek_number: 9
+  name: Gameweek 9
+  transfer_deadline: 2024-10-25 17:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 10
+  gameweek_number: 10
+  name: Gameweek 10
+  transfer_deadline: 2024-11-02 11:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 11
+  gameweek_number: 11
+  name: Gameweek 11
+  transfer_deadline: 2024-11-09 13:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 12
+  gameweek_number: 12
+  name: Gameweek 12
+  transfer_deadline: 2024-11-23 11:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 13
+  gameweek_number: 13
+  name: Gameweek 13
+  transfer_deadline: 2024-11-29 18:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 14
+  gameweek_number: 14
+  name: Gameweek 14
+  transfer_deadline: 2024-12-03 18:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 15
+  gameweek_number: 15
+  name: Gameweek 15
+  transfer_deadline: 2024-12-07 11:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 16
+  gameweek_number: 16
+  name: Gameweek 16
+  transfer_deadline: 2024-12-14 13:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: true
+  data_checked: true
+- id: 17
+  gameweek_number: 17
+  name: Gameweek 17
+  transfer_deadline: 2024-12-21 11:00:00+00:00
+  gameweek_active: true
+  gameweek_finished: false
+  data_checked: false
+- id: 18
+  gameweek_number: 18
+  name: Gameweek 18
+  transfer_deadline: 2024-12-26 11:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 19
+  gameweek_number: 19
+  name: Gameweek 19
+  transfer_deadline: 2024-12-29 13:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 20
+  gameweek_number: 20
+  name: Gameweek 20
+  transfer_deadline: 2025-01-04 11:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 21
+  gameweek_number: 21
+  name: Gameweek 21
+  transfer_deadline: 2025-01-14 18:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 22
+  gameweek_number: 22
+  name: Gameweek 22
+  transfer_deadline: 2025-01-18 11:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 23
+  gameweek_number: 23
+  name: Gameweek 23
+  transfer_deadline: 2025-01-25 13:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 24
+  gameweek_number: 24
+  name: Gameweek 24
+  transfer_deadline: 2025-02-01 11:00:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 25
+  gameweek_number: 25
+  name: Gameweek 25
+  transfer_deadline: 2025-02-14 18:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 26
+  gameweek_number: 26
+  name: Gameweek 26
+  transfer_deadline: 2025-02-21 18:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 27
+  gameweek_number: 27
+  name: Gameweek 27
+  transfer_deadline: 2025-02-25 18:15:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 28
+  gameweek_number: 28
+  name: Gameweek 28
+  transfer_deadline: 2025-03-08 13:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 29
+  gameweek_number: 29
+  name: Gameweek 29
+  transfer_deadline: 2025-03-15 13:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 30
+  gameweek_number: 30
+  name: Gameweek 30
+  transfer_deadline: 2025-04-01 17:15:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 31
+  gameweek_number: 31
+  name: Gameweek 31
+  transfer_deadline: 2025-04-05 12:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 32
+  gameweek_number: 32
+  name: Gameweek 32
+  transfer_deadline: 2025-04-12 12:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 33
+  gameweek_number: 33
+  name: Gameweek 33
+  transfer_deadline: 2025-04-19 12:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 34
+  gameweek_number: 34
+  name: Gameweek 34
+  transfer_deadline: 2025-04-26 12:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 35
+  gameweek_number: 35
+  name: Gameweek 35
+  transfer_deadline: 2025-05-03 12:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 36
+  gameweek_number: 36
+  name: Gameweek 36
+  transfer_deadline: 2025-05-10 12:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 37
+  gameweek_number: 37
+  name: Gameweek 37
+  transfer_deadline: 2025-05-18 12:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false
+- id: 38
+  gameweek_number: 38
+  name: Gameweek 38
+  transfer_deadline: 2025-05-25 13:30:00+00:00
+  gameweek_active: false
+  gameweek_finished: false
+  data_checked: false

@@ -47,7 +47,7 @@ class Fixture(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     fpl_tracker_id: Mapped[int]
     season_id: Mapped[int] = mapped_column(ForeignKey("seasons.id"))
-    gameweek_id: Mapped[int] = mapped_column(ForeignKey("gameweeks.id"))
+    game_week_id: Mapped[int] = mapped_column(ForeignKey("gameweeks.id"))
     home_team_id: Mapped[int] = mapped_column(ForeignKey("teams.id"))
     away_team_id: Mapped[int] = mapped_column(ForeignKey("teams.id"))
     kickoff_time: Mapped[datetime] = mapped_column(TIMESTAMP)
@@ -66,7 +66,7 @@ class PlayerFixture(Base):
     player_id: Mapped[int] = mapped_column(ForeignKey("players.id"))
     player_fpl_tracker_id: Mapped[int]
     fixture_id: Mapped[int] = mapped_column(ForeignKey("fixtures.id"))
-    gameweek_id: Mapped[int] = mapped_column(ForeignKey("gameweeks.id"))
+    game_week_id: Mapped[int] = mapped_column(ForeignKey("gameweeks.id"))
     team_id: Mapped[int] = mapped_column(ForeignKey("teams.id"))
     minutes: Mapped[int]
     clean_sheet: Mapped[bool]
@@ -89,6 +89,7 @@ class PlayerFixture(Base):
     expected_goals: Mapped[float]
     expected_assists: Mapped[float]
     expected_goal_involvements: Mapped[float]
+    expected_goals_conceded: Mapped[float]
     total_points: Mapped[int]
 
 
