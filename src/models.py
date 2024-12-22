@@ -20,6 +20,8 @@ class Player(Base):
     web_name: Mapped[str] = mapped_column(String(255))  # Added length
     status: Mapped[str] = mapped_column(String(50))  # Added length, status might not need 255
     player_type: Mapped[str] = mapped_column(String(50))  # Added length, adjusted for type
+    price: Mapped[float]
+    form: Mapped[float]
     team_id: Mapped[int] = mapped_column(ForeignKey("teams.id"))
 
 class Team(Base):
@@ -47,7 +49,7 @@ class Fixture(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     fpl_tracker_id: Mapped[int]
     season_id: Mapped[int] = mapped_column(ForeignKey("seasons.id"))
-    game_week_id: Mapped[int] = mapped_column(ForeignKey("gameweeks.id"))
+    game_week_id: Mapped[int] = mapped_column(ForeignKey("game_weeks.id"))
     home_team_id: Mapped[int] = mapped_column(ForeignKey("teams.id"))
     away_team_id: Mapped[int] = mapped_column(ForeignKey("teams.id"))
     kickoff_time: Mapped[datetime] = mapped_column(TIMESTAMP)
@@ -66,7 +68,7 @@ class PlayerFixture(Base):
     player_id: Mapped[int] = mapped_column(ForeignKey("players.id"))
     player_fpl_tracker_id: Mapped[int]
     fixture_id: Mapped[int] = mapped_column(ForeignKey("fixtures.id"))
-    game_week_id: Mapped[int] = mapped_column(ForeignKey("gameweeks.id"))
+    game_week_id: Mapped[int] = mapped_column(ForeignKey("game_weeks.id"))
     team_id: Mapped[int] = mapped_column(ForeignKey("teams.id"))
     minutes: Mapped[int]
     clean_sheet: Mapped[bool]

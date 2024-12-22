@@ -2301,11 +2301,11 @@
   home_team_id: 11
   away_team_id: 8
   kickoff_time: 2024-12-22 14:00:00+00:00
-  minutes: 0
-  finished: false
-  finished_provisional: false
+  minutes: 90
+  finished: true
+  finished_provisional: true
   provisional_start_time: false
-  started: false
+  started: true
   home_team_score: 0
   away_team_score: 0
 - id: 2444634
@@ -2315,11 +2315,11 @@
   home_team_id: 54
   away_team_id: 20
   kickoff_time: 2024-12-22 14:00:00+00:00
-  minutes: 0
-  finished: false
-  finished_provisional: false
+  minutes: 90
+  finished: true
+  finished_provisional: true
   provisional_start_time: false
-  started: false
+  started: true
   home_team_score: 0
   away_team_score: 0
 - id: 2444636
@@ -2329,13 +2329,13 @@
   home_team_id: 13
   away_team_id: 39
   kickoff_time: 2024-12-22 14:00:00+00:00
-  minutes: 0
-  finished: false
-  finished_provisional: false
+  minutes: 90
+  finished: true
+  finished_provisional: true
   provisional_start_time: false
-  started: false
+  started: true
   home_team_score: 0
-  away_team_score: 0
+  away_team_score: 3
 - id: 2444637
   fpl_tracker_id: 168
   season_id: 2
@@ -2343,13 +2343,13 @@
   home_team_id: 1
   away_team_id: 91
   kickoff_time: 2024-12-22 14:00:00+00:00
-  minutes: 0
-  finished: false
-  finished_provisional: false
+  minutes: 90
+  finished: true
+  finished_provisional: true
   provisional_start_time: false
-  started: false
+  started: true
   home_team_score: 0
-  away_team_score: 0
+  away_team_score: 3
 - id: 2444638
   fpl_tracker_id: 169
   season_id: 2
@@ -2357,13 +2357,13 @@
   home_team_id: 6
   away_team_id: 14
   kickoff_time: 2024-12-22 16:30:00+00:00
-  minutes: 0
-  finished: false
-  finished_provisional: false
+  minutes: 90
+  finished: true
+  finished_provisional: true
   provisional_start_time: false
-  started: false
-  home_team_score: 0
-  away_team_score: 0
+  started: true
+  home_team_score: 3
+  away_team_score: 6
 - id: 2444645
   fpl_tracker_id: 176
   season_id: 2
