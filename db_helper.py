@@ -32,11 +32,8 @@ def get_fixtures_data():
     fixtures_data = FixturesFPLResponse(fixtures=data)
     return fixtures_data
 
-def create_players_fixture_files(bootstrap_player_data: BootstrapStaticPlayersResponse):
-    print(f'Creating player fixture files')
-
 def create_gameweeks_fixture_files(bootstrap_gameweeks_data: BootstrapStaticGameweeksResponse):
-    print(f'Creating gameweeks fixture files')
+    print(f'Creating gameweek database fixtures')
     gameweek_fixtures = []
     for gameweek in bootstrap_gameweeks_data:
         gameweek_fixture_entry = {
@@ -54,7 +51,7 @@ def create_gameweeks_fixture_files(bootstrap_gameweeks_data: BootstrapStaticGame
     return gameweek_fixtures
 
 def create_teams_fixture_files(bootstrap_teams_data: BootstrapStaticTeamsResponse):
-    print(f'Creating teams fixture files')
+    print(f'Creating team database fixtures')
     team_fixtures = {}
     for team in bootstrap_teams_data:
         team_fixture_entry = {
@@ -70,7 +67,7 @@ def create_teams_fixture_files(bootstrap_teams_data: BootstrapStaticTeamsRespons
     return team_fixtures_list, team_fixtures
 
 def create_team_fpl_seasons_fixture_files(team_fixtures: list):
-    print(f'Creating team fpl seasons fixture files')
+    print(f'Creating team_fpl_season database fixtures')
     team_fpl_seasons_fixtures = []
     for team in team_fixtures:
         team_fpl_seasons_fixture_entry = {
@@ -83,7 +80,7 @@ def create_team_fpl_seasons_fixture_files(team_fixtures: list):
     return team_fpl_seasons_fixtures
 
 def create_players_fixture_files(bootstrap_players_data: BootstrapStaticPlayersResponse):
-    print(f'Creating players fixture files')
+    print(f'Creating player database fixtures')
     player_fixtures = []
     for player in bootstrap_players_data:
         player_fixture_entry = {
@@ -94,7 +91,9 @@ def create_players_fixture_files(bootstrap_players_data: BootstrapStaticPlayersR
             "web_name": player.web_name,
             "team_id": player.team_code,
             "status": player.status,
-            "player_type": player.element_type
+            "player_type": player.element_type,
+            "price": player.now_cost,
+            "form": player.form
         }
         player_fixtures.append(player_fixture_entry)
     with open('fixtures/players.yaml', 'w', encoding='utf-8') as f:
@@ -102,7 +101,7 @@ def create_players_fixture_files(bootstrap_players_data: BootstrapStaticPlayersR
     return player_fixtures
 
 def create_player_fpl_seasons_fixture_files(player_fixtures: list):
-    print(f'Creating player fpl seasons fixture files')
+    print(f'Creating player_fpl_season database fixtures')
     player_fpl_seasons_fixtures = []
     for player in player_fixtures:
         player_fpl_seasons_fixture_entry = {
@@ -115,7 +114,7 @@ def create_player_fpl_seasons_fixture_files(player_fixtures: list):
     return player_fpl_seasons_fixtures
 
 def create_fixtures_fixture_files(fixtures_data: FixturesFPLResponse, teams_dict: dict):
-    print(f'Creating fixtures fixture files')
+    print(f'Creating fixture database fixtures')
     fixtures_fixtures = []
     for fixture in fixtures_data.fixtures:
         fixture_entry = {
@@ -151,7 +150,7 @@ def clone_vaastav_repo(repo_url: str, clone_to: str):
 
 
 def create_player_fixture_db_entries(teams: list, players: list, fixtures: list):
-    print(f'Creating player fixture fixture files')
+    print(f'Creating player_fixture database fixtures')
     player_fixture_db_entries = []
     # loop through the teams list and create a dictionary with the key being the team name and the value being the team
     team_dict = {}
@@ -205,7 +204,7 @@ def create_player_fixture_db_entries(teams: list, players: list, fixtures: list)
                     "total_points": row["total_points"],
                 }
                 player_fixture_db_entries.append(player_fixture_entry)
-                gw_count += 1
+            gw_count += 1
     # Write fixtures to YAML file
     with open('fixtures/player_fixtures.yaml', 'w', encoding='utf-8') as f:
         yaml.dump(player_fixture_db_entries, f, sort_keys=False, default_flow_style=False, allow_unicode=True)
@@ -288,22 +287,24 @@ async def seed_database():
     await seed_players()
     print("Seeded players")
     await seed_team_fpl_seasons()
-    print("Seeded team fpl seasons")
+    print("Seeded team_fpl_seasons")
     await seed_player_fpl_seasons()
-    print("Seeded player fpl seasons")
+    print("Seeded player_fpl_seasons")
     await seed_player_fixtures()
-    print("Seeded player fixtures")
+    print("Seeded player_fixtures")
 
 async def truncate_database():
     async with SessionLocal.begin() as db:
-        await db.execute(text("TRUNCATE TABLE seasons"))
-        await db.execute(text("TRUNCATE TABLE teams"))
-        await db.execute(text("TRUNCATE TABLE players"))
-        await db.execute(text("TRUNCATE TABLE fixtures"))
+        await db.execute(text("SET FOREIGN_KEY_CHECKS = 0"))
         await db.execute(text("TRUNCATE TABLE player_fixtures"))
         await db.execute(text("TRUNCATE TABLE player_fpl_seasons"))
         await db.execute(text("TRUNCATE TABLE team_fpl_seasons"))
+        await db.execute(text("TRUNCATE TABLE fixtures"))
+        await db.execute(text("TRUNCATE TABLE teams"))
+        await db.execute(text("TRUNCATE TABLE players"))
         await db.execute(text("TRUNCATE TABLE game_weeks"))
+        await db.execute(text("TRUNCATE TABLE seasons"))
+        await db.execute(text("SET FOREIGN_KEY_CHECKS = 1"))
 
 async def generate_fixtures():
     clone_vaastav_repo("https://github.com/vaastav/Fantasy-Premier-League.git", "vaastav")
