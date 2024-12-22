@@ -72,7 +72,7 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
                 player_ids.add(transfer["player_out_id"])
 
             # Fetch player data from the database
-            players_data = await crud.get_players(db, list(player_ids))
+            transfer_players_data = await crud.get_players(db, list(player_ids))
 
             # Loop through players from the query and create a mapping from player ID to player details
             player_id_to_details = {
@@ -81,7 +81,7 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
                     "second_name": player.second_name,
                     "web_name": player.web_name
                 }
-                for player in players_data
+                for player in transfer_players_data
             }
 
             transfer_details = []
@@ -114,10 +114,10 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
                 }
                 transfer_details.append(transfer_info)
 
-            # Grab all player IDs from picks object for the gameweek
+            # Grab all player IDs from picks object for the gameweek and query the database for live data
             players = [pick["element"] for pick in picks_data["picks"]]
-            # TODO: Query the Database using the player IDs for live data
-            # players_data = await get_players(players)
+
+            players_live_data = await crud.get_player_fixtures(db, gameweek_id, players)
 
             return {
                 "metadata": metadata,
@@ -125,7 +125,7 @@ async def get_manager(db: DB, gameweek_id: int, manager_id: int):
                     "number_of_transfers": transfer_count,
                     "details": transfer_details
                 },
-                "players": players,
+                "players": players_live_data,
             }
 
 
