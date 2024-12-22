@@ -6,20 +6,14 @@ from logging.config import fileConfig
 
 from alembic import context
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from src.models import Base, FPLScraperAccount
-from src.database import sessionmanager
 from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import async_engine_from_config
-from sqlalchemy.future import select
-from sqlalchemy.ext.asyncio import AsyncSession
+from src.settings import get_settings
 
 config = context.config
 fileConfig(config.config_file_name)
 
 target_metadata = Base.metadata
-
-def get_url():
-    return os.getenv("DATABASE_URL")
 
 def run_migrations_offline():
     """Run migrations in 'offline' mode.
@@ -33,7 +27,7 @@ def run_migrations_offline():
     script output.
 
     """
-    url = get_url()
+    url = get_settings().database_url
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -57,7 +51,7 @@ async def run_migrations_online():
     print("REACHED")
     """Run migrations in 'online' mode."""
     configuration = config.get_section(config.config_ini_section)
-    configuration["sqlalchemy.url"] = get_url()
+    configuration["sqlalchemy.url"] = get_settings().database_url
 
     connectable = async_engine_from_config(
         configuration, prefix="sqlalchemy.", poolclass=pool.NullPool
@@ -67,35 +61,6 @@ async def run_migrations_online():
         await do_run_migrations(connection)
       #  await seed_database(connection)
 
-async def seed_database(engine):
-    """Function to seed the database with an initial FPL manager session."""
-    async with AsyncSession(engine) as session:
-        # Check if there's already a seeded entry
-        stmt = select(FPLScraperAccount).where(FPLScraperAccount.email == "example@example.com")
-        result = await session.execute(stmt)
-        existing_entry = result.scalars().first()
-        #stmt = select(FPLScraperAccount).where(FPLScraperAccount.email == "example@example.com")
-        #result = await session.execute(stmt)
-        #existing_entry = result.scalars().first()
-
-      #  existing_entry = await session.execute(
-      #      session.query(FPLScraperAccount).filter_by(email="example@example.com")
-      #  )
-
-        # If no entry exists, insert one
-        if not existing_entry:
-            new_manager = FPLScraperAccount(
-                email="yategip337@jucatyo.com",
-                password="WL@+simEHnu8?m+",
-                manager_id="80834613",
-                cookies="",
-                in_use=False,
-                #last_used=datetime.utcnow(),
-                #cookies_last_updated=datetime.utcnow(),
-                active=True
-            )
-            session.add(new_manager)
-            await session.commit()
 if context.is_offline_mode():
     run_migrations_offline()
 else:
