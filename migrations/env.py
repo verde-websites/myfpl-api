@@ -3,12 +3,13 @@ import sys
 import asyncio
 import os
 from logging.config import fileConfig
-
 from alembic import context
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import async_engine_from_config
 from src.settings import get_settings
+
+from src.database import Base
 
 config = context.config
 fileConfig(config.config_file_name)

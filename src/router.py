@@ -19,9 +19,17 @@ def gameweek_router():
     router.get("/current", response_model=schemas.GetGameweekResponse)(routes.get_current_gameweek)
     return router
 
+def manager_router():
+    """Build the manager router"""
+    router = APIRouter()
+    # TODO: Add response model - response_model=schemas.GetManagerResponse
+    router.get("/{manager_id}")(routes.get_manager)
+    return router
+
 def build_router():
     """Build the FastAPI router"""
     router = APIRouter()
     router.include_router(seasons_router(), prefix="/api/seasons", tags=["seasons"])
     router.include_router(gameweek_router(), prefix="/api/gameweek", tags=["gameweek"])
+    router.include_router(manager_router(), prefix="/api/manager", tags=["manager"])
     return router

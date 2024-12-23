@@ -16,7 +16,7 @@
   team_id: 3
   status: a
   player_type: 4
-  price: 67
+  price: 68
   form: '3.3'
 - id: 226597
   fpl_tracker_id: 3
@@ -26,7 +26,7 @@
   team_id: 3
   status: a
   player_type: 2
-  price: 62
+  price: 63
   form: '4.7'
 - id: 219847
   fpl_tracker_id: 4
@@ -136,7 +136,7 @@
   team_id: 3
   status: d
   player_type: 3
-  price: 106
+  price: 105
   form: '6.7'
 - id: 462424
   fpl_tracker_id: 18
@@ -366,7 +366,7 @@
   team_id: 7
   status: a
   player_type: 3
-  price: 52
+  price: 51
   form: '0.5'
 - id: 199796
   fpl_tracker_id: 32
@@ -2814,7 +2814,7 @@
   second_name: Ramalho Chermiti
   web_name: Y. Chermiti
   team_id: 11
-  status: d
+  status: a
   player_type: 4
   price: 49
   form: '0.0'
@@ -2824,7 +2824,7 @@
   second_name: Young
   web_name: Young
   team_id: 11
-  status: a
+  status: s
   player_type: 2
   price: 47
   form: '6.6'
@@ -2924,7 +2924,7 @@
   second_name: Smith Rowe
   web_name: Smith Rowe
   team_id: 54
-  status: a
+  status: d
   player_type: 3
   price: 54
   form: '1.2'
@@ -2934,7 +2934,7 @@
   second_name: Andersen
   web_name: Andersen
   team_id: 54
-  status: d
+  status: a
   player_type: 2
   price: 42
   form: '0.0'
@@ -3044,7 +3044,7 @@
   second_name: Lukić
   web_name: Lukić
   team_id: 54
-  status: a
+  status: d
   player_type: 3
   price: 48
   form: '1.2'
@@ -3194,7 +3194,7 @@
   second_name: Berge
   web_name: Berge
   team_id: 54
-  status: a
+  status: d
   player_type: 3
   price: 50
   form: '1.8'
@@ -3316,7 +3316,7 @@
   team_id: 40
   status: a
   player_type: 2
-  price: 40
+  price: 39
   form: '0.2'
 - id: 167191
   fpl_tracker_id: 271
@@ -3676,7 +3676,7 @@
   team_id: 13
   status: a
   player_type: 2
-  price: 44
+  price: 43
   form: '0.5'
 - id: 481510
   fpl_tracker_id: 296
@@ -4056,7 +4056,7 @@
   team_id: 14
   status: a
   player_type: 3
-  price: 134
+  price: 135
   form: '14.0'
 - id: 243016
   fpl_tracker_id: 329
@@ -4326,7 +4326,7 @@
   team_id: 43
   status: a
   player_type: 4
-  price: 149
+  price: 148
   form: '3.3'
 - id: 461358
   fpl_tracker_id: 352
@@ -4736,7 +4736,7 @@
   team_id: 1
   status: a
   player_type: 3
-  price: 68
+  price: 67
   form: '4.0'
 - id: 106760
   fpl_tracker_id: 387
@@ -5206,7 +5206,7 @@
   team_id: 17
   status: a
   player_type: 2
-  price: 49
+  price: 50
   form: '4.5'
 - id: 215379
   fpl_tracker_id: 423
@@ -5524,7 +5524,7 @@
   second_name: Ramsdale
   web_name: Ramsdale
   team_id: 20
-  status: d
+  status: a
   player_type: 1
   price: 44
   form: '1.7'
@@ -5634,7 +5634,7 @@
   second_name: Bree
   web_name: Bree
   team_id: 20
-  status: d
+  status: a
   player_type: 2
   price: 39
   form: '0.3'
@@ -5824,7 +5824,7 @@
   second_name: Walker-Peters
   web_name: Walker-Peters
   team_id: 20
-  status: d
+  status: a
   player_type: 2
   price: 44
   form: '2.2'
@@ -6086,7 +6086,7 @@
   team_id: 6
   status: a
   player_type: 2
-  price: 56
+  price: 55
   form: '4.2'
 - id: 199249
   fpl_tracker_id: 496
@@ -6174,7 +6174,7 @@
   second_name: Udogie
   web_name: Udogie
   team_id: 6
-  status: d
+  status: a
   player_type: 2
   price: 49
   form: '1.8'
@@ -6214,7 +6214,7 @@
   second_name: Werner
   web_name: Werner
   team_id: 6
-  status: d
+  status: a
   player_type: 3
   price: 62
   form: '2.5'
@@ -6356,7 +6356,7 @@
   team_id: 21
   status: a
   player_type: 3
-  price: 74
+  price: 75
   form: '5.2'
 - id: 164555
   fpl_tracker_id: 516
@@ -6526,7 +6526,7 @@
   team_id: 21
   status: a
   player_type: 3
-  price: 57
+  price: 56
   form: '1.8'
 - id: 197024
   fpl_tracker_id: 588
@@ -6834,7 +6834,7 @@
   second_name: Malheiro de Sá
   web_name: José Sá
   team_id: 39
-  status: d
+  status: a
   player_type: 1
   price: 43
   form: '1.5'
@@ -6864,7 +6864,7 @@
   second_name: Lemina
   web_name: Mario Jr.
   team_id: 39
-  status: a
+  status: d
   player_type: 3
   price: 50
   form: '2.0'
@@ -6946,7 +6946,7 @@
   team_id: 39
   status: a
   player_type: 4
-  price: 57
+  price: 56
   form: '4.0'
 - id: 510362
   fpl_tracker_id: 567
