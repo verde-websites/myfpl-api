@@ -1,0 +1,2 @@
+- Convert player_type to int not a string containing integer
+- Create a nice helper model or something to combine live and static data for a PL player data
