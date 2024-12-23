@@ -2,3 +2,4 @@
 - Separate manager logic into services - Metadata, Transfers, Live Player Data
 - Use curl_cffi on the manager endpoint requests 
 - Add response model to manager endpoint
+- Add error catches and logging to manager controller 
