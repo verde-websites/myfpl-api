@@ -1,3 +1,4 @@
 - Convert player_type to int not a string containing integer
 - Separate manager logic into services - Metadata, Transfers, Live Player Data
 - Use curl_cffi on the manager endpoint requests 
+- Add response model to manager endpoint
