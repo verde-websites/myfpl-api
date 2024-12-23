@@ -22,8 +22,8 @@ async def get_player_fixtures(db: AsyncSession, gameweek_id: int, players: List[
     pprint.pprint(players)
     player_fixtures_query = await db.execute(
         select(PlayerFixtureDBModel).where(
-            PlayerFixtureDBModel.player_fpl_tracker_id.in_(players)
-            # PlayerFixtureDBModel.game_week_id == gameweek_id
+            PlayerFixtureDBModel.player_fpl_tracker_id.in_(players),
+            PlayerFixtureDBModel.game_week_id == gameweek_id
         )
     )
     player_fixtures_list = player_fixtures_query.scalars().all()
