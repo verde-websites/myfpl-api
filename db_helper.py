@@ -166,10 +166,11 @@ def create_player_fixture_db_entries(teams: list, players: list, fixtures: list)
         fixtures_dict[fixture["fpl_tracker_id"]] = fixture
     # Read all gameweek CSV files from vaastav repo
     gw_dir = "vaastav/data/2024-25/gws"
-    gw_count = 1
     for filename in os.listdir(gw_dir):
         if filename.endswith(".csv") and filename.startswith("gw"):
             gw_df = pd.read_csv(os.path.join(gw_dir, filename))
+            gw_count = int(filename.split("gw")[1].split(".")[0])
+            print(f"Processing gameweek {gw_count} from {filename}")
             
             # Process each row in the gameweek file
             for _, row in gw_df.iterrows():
@@ -204,7 +205,6 @@ def create_player_fixture_db_entries(teams: list, players: list, fixtures: list)
                     "total_points": row["total_points"],
                 }
                 player_fixture_db_entries.append(player_fixture_entry)
-            gw_count += 1
     # Write fixtures to YAML file
     with open('fixtures/player_fixtures.yaml', 'w', encoding='utf-8') as f:
         yaml.dump(player_fixture_db_entries, f, sort_keys=False, default_flow_style=False, allow_unicode=True)
