@@ -1,6 +1,7 @@
 from http.client import HTTPException
 
 from src import services
+from src.services.manager_transfers import get_manager_transfers
 from ..middleware import DB
 from .. import crud
 import httpx
@@ -18,7 +19,6 @@ async def get_manager(db: DB, manager_id: int):
     base_url = "https://fantasy.premierleague.com/api/entry/"
     endpoints = {
         "manager": f"{base_url}{manager_id}/",
-        "transfers": f"{base_url}{manager_id}/transfers/",
         "picks": f"{base_url}{manager_id}/event/{gameweek.id}/picks/"
     }
 
@@ -27,12 +27,12 @@ async def get_manager(db: DB, manager_id: int):
             tasks = [client.get(url, timeout=10.0) for url in endpoints.values()]
             responses = await asyncio.gather(*tasks)
 
-            # print(services.get_manager_transfers(db, manager_id, gameweek.id))
 
             # Endpoint Data Objects
             manager_data = responses[0].json()
-            transfers_data = responses[1].json()
-            picks_data = responses[2].json()
+            # transfers_data = responses[1].json()
+            transfers_data = await get_manager_transfers(db, manager_id, gameweek.id)
+            picks_data = responses[1].json()
 
             # Reformatting Data for Response
             first_name = manager_data.get("player_first_name", "")
@@ -52,76 +52,7 @@ async def get_manager(db: DB, manager_id: int):
                 "bank": picks_data["entry_history"]["bank"],
                 "percentile_rank": picks_data["entry_history"]["percentile_rank"]
             }
-
-            # Get all transfers that occurred in the current gameweek
-            gameweek_transfers = [
-                transfer for transfer in transfers_data
-                if transfer.get("event") == gameweek.id
-            ]
-
-            # Get the number of transfers that occurred in the current gameweek
-            transfer_count = len(gameweek_transfers)
-
-            # Loop through this gameweek's transfers and get the player IDs and costs
-            gameweek_transfer_elements = [
-                {
-                    "player_in_id": transfer.get("element_in"),
-                    "player_in_cost": transfer.get("element_in_cost"),
-                    "player_out_id": transfer.get("element_out"),
-                    "player_out_cost": transfer.get("element_out_cost")
-                }
-                for transfer in gameweek_transfers
-            ]
-
-            # Extract unique player IDs for Database Query
-            player_ids = set()
-            for transfer in gameweek_transfer_elements:
-                player_ids.add(transfer["player_in_id"])
-                player_ids.add(transfer["player_out_id"])
-
-            # Fetch player data from the database
-            transfer_players_data = await crud.get_players(db, list(player_ids))
-
-            # Loop through players from the query and create a mapping from player ID to player details
-            player_id_to_details = {
-                player.fpl_tracker_id: {
-                    "first_name": player.first_name,
-                    "second_name": player.second_name,
-                    "web_name": player.web_name
-                }
-                for player in transfer_players_data
-            }
-
-            transfer_details = []
-            # Integrate player names into transfer elements and format for response
-            for transfer in gameweek_transfer_elements:
-                player_in = player_id_to_details.get(transfer["player_in_id"], {})
-                player_out = player_id_to_details.get(transfer["player_out_id"], {})
-                
-                transfer["player_in_first_name"] = player_in.get("first_name", "Unknown")
-                transfer["player_in_second_name"] = player_in.get("second_name", "Unknown")
-                transfer["player_in_web_name"] = player_in.get("web_name", "Unknown")
-                transfer["player_out_first_name"] = player_out.get("first_name", "Unknown")
-                transfer["player_out_second_name"] = player_out.get("second_name", "Unknown")
-                transfer["player_out_web_name"] = player_out.get("web_name", "Unknown")
-                transfer_info = {
-                    "player_in": {
-                        "player_in_id": transfer["player_in_id"],
-                        "player_in_cost": transfer["player_in_cost"],
-                        "player_in_first_name": transfer["player_in_first_name"],
-                        "player_in_second_name": transfer["player_in_second_name"],
-                        "player_in_web_name": transfer["player_in_web_name"],
-                    },
-                    "player_out": {
-                        "player_out_id": transfer["player_out_id"],
-                        "player_out_cost": transfer["player_out_cost"],
-                        "player_out_first_name": transfer["player_out_first_name"],
-                        "player_out_second_name": transfer["player_out_second_name"],
-                        "player_out_web_name": transfer["player_out_web_name"],
-                    }
-                }
-                transfer_details.append(transfer_info)
-
+            
             # Grab all player IDs from picks object for the gameweek and query the database for live data
             player_ids = [pick["element"] for pick in picks_data["picks"]]
 
@@ -186,10 +117,7 @@ async def get_manager(db: DB, manager_id: int):
 
             return {
                 "metadata": metadata,
-                "transfers": {
-                    "number_of_transfers": transfer_count,
-                    "details": transfer_details
-                },
+                "transfers": transfers_data,
                 "players": combined_players_data,
             }
 
