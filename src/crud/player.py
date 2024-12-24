@@ -1,4 +1,3 @@
-import pprint
 from typing import List
 from src.models import Player as PlayerDBModel, PlayerFixture as PlayerFixtureDBModel
 from sqlalchemy import select
@@ -19,7 +18,6 @@ async def get_player_fixtures(db: AsyncSession, gameweek_id: int, players: List[
     """
     Get the player fixtures from the database
     """
-    pprint.pprint(players)
     player_fixtures_query = await db.execute(
         select(PlayerFixtureDBModel).where(
             PlayerFixtureDBModel.player_fpl_tracker_id.in_(players),
@@ -27,5 +25,4 @@ async def get_player_fixtures(db: AsyncSession, gameweek_id: int, players: List[
         )
     )
     player_fixtures_list = player_fixtures_query.scalars().all()
-    pprint.pprint(player_fixtures_list)
     return player_fixtures_list

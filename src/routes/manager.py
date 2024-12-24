@@ -1,4 +1,6 @@
 from http.client import HTTPException
+
+from src import services
 from ..middleware import DB
 from .. import crud
 import httpx
@@ -24,6 +26,8 @@ async def get_manager(db: DB, manager_id: int):
         try:
             tasks = [client.get(url, timeout=10.0) for url in endpoints.values()]
             responses = await asyncio.gather(*tasks)
+
+            # print(services.get_manager_transfers(db, manager_id, gameweek.id))
 
             # Endpoint Data Objects
             manager_data = responses[0].json()
