@@ -5,7 +5,7 @@ from ..middleware import DB
 from fastapi import HTTPException
 
 
-async def get_manager_transfers(db: DB, manager_id: int, gameweek_id: int):
+async def get_manager_transfers_by_gameweek(db: DB, manager_id: int, gameweek_id: int):
     """
     Get the manager transfers for a specific gameweek.
     """

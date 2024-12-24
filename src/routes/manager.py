@@ -1,8 +1,6 @@
 from http.client import HTTPException
 
 from src import services
-from src.services.manager_metadata import get_manager_metadata
-from src.services.manager_transfers import get_manager_transfers
 from ..middleware import DB
 from .. import crud
 import httpx
@@ -19,7 +17,7 @@ async def get_manager(db: DB, manager_id: int):
 
     base_url = "https://fantasy.premierleague.com/api/entry/"
     endpoints = {
-        "manager": f"{base_url}{manager_id}/",
+        # "manager": f"{base_url}{manager_id}/",
         "picks": f"{base_url}{manager_id}/event/{gameweek.id}/picks/"
     }
 
@@ -29,10 +27,10 @@ async def get_manager(db: DB, manager_id: int):
             responses = await asyncio.gather(*tasks)
 
             # Endpoint Data Objects
-            manager_data = responses[0].json()
-            metadata = await get_manager_metadata(manager_id, gameweek.id)
-            transfers_data = await get_manager_transfers(db, manager_id, gameweek.id)
-            picks_data = responses[1].json()
+            # manager_data = responses[0].json()
+            metadata = await services.get_manager_metadata(manager_id, gameweek.id)
+            transfers_data = await services.get_manager_transfers_by_gameweek(db, manager_id, gameweek.id)
+            picks_data = responses[0].json()
 
             # Grab all player IDs from picks object for the gameweek and query the database for live data
             player_ids = [pick["element"] for pick in picks_data["picks"]]
