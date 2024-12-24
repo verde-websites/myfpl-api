@@ -30,6 +30,7 @@ async def get_manager(db: DB, manager_id: int):
             # manager_data = responses[0].json()
             metadata = await services.get_manager_metadata(manager_id, gameweek.id)
             transfers_data = await services.get_manager_transfers_by_gameweek(db, manager_id, gameweek.id)
+            # live_players_data = await services.get_live_players_by_gameweek(db, manager_id, gameweek.id)
             picks_data = responses[0].json()
 
             # Grab all player IDs from picks object for the gameweek and query the database for live data
