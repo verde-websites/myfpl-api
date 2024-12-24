@@ -1,3 +1,4 @@
+import json
 import httpx
 
 from src import crud
@@ -15,7 +16,17 @@ async def get_manager_transfers_by_gameweek(db: DB, manager_id: int, gameweek_id
     async with httpx.AsyncClient() as client:
         try:
             response = await client.get(endpoint, timeout=10.0)
-            transfers_data = response.json()
+            response.raise_for_status()  # Raises HTTPError for bad responses
+
+            try:
+                transfers_data = response.json()
+            except json.JSONDecodeError as json_err:
+                # Log the response content for debugging
+                error_content = response.text
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"JSON decoding failed: {json_err}. Response content: {error_content}"
+                )
 
             gameweek_transfers = [
                 transfer for transfer in transfers_data

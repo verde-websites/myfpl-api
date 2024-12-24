@@ -11,3 +11,6 @@ Fixtures:
 
 DB Stuff:
 - Convert player_type to int not a string containing integer
+
+General:
+- Add versioning to endpoints

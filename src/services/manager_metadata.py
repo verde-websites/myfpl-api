@@ -1,3 +1,4 @@
+import json
 import httpx
 import asyncio
 from fastapi import HTTPException
@@ -16,9 +17,25 @@ async def get_manager_metadata(manager_id: int, gameweek_id: int):
         try:
             tasks = [client.get(url, timeout=10.0) for url in endpoints.values()]
             responses = await asyncio.gather(*tasks)
+            responses[0].raise_for_status()  # Raises HTTPError for bad responses
+            responses[1].raise_for_status()  # Raises HTTPError for bad responses
 
-            manager_data = responses[0].json()
-            picks_data = responses[1].json()
+            try:
+                manager_data = responses[0].json()
+                picks_data = responses[1].json()
+            except json.JSONDecodeError as json_err:
+                # Log the response content for debugging
+                error_content_manager = responses[0].text
+                error_content_picks = responses[1].text
+
+                raise HTTPException(
+                    status_code=500,
+                   detail=(
+                        f"JSON decoding failed: {json_err}. "
+                        f"Manager response content: {error_content_manager}. "
+                        f"Picks response content: {error_content_picks}."
+                    )
+                )
 
             first_name = manager_data.get("player_first_name", "")
             last_name = manager_data.get("player_last_name", "")
