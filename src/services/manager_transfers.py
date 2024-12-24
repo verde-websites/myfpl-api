@@ -85,12 +85,6 @@ async def get_manager_transfers(db: DB, manager_id: int, gameweek_id: int):
                 "details": transfer_details
             }
 
-
-
-
-
-
-            return transfer_data
         except httpx.RequestError as e:
             raise HTTPException(status_code=500, detail=f"Request to FPL API failed: {e}")
         except httpx.TimeoutException:
