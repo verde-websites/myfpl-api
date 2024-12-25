@@ -22,8 +22,8 @@ def gameweek_router():
 def manager_router():
     """Build the manager router"""
     router = APIRouter()
-    # TODO: Add response model - response_model=schemas.GetManagerResponse
-    router.get("/{manager_id}")(routes.get_manager)
+    # TODO: Add gameweek_id to the URL 
+    router.get("/{manager_id}", response_model=schemas.GetManagerResponse)(routes.get_manager)
     return router
 
 def build_router():
