@@ -41,50 +41,32 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
             combined_players_data = []
             for live_player in live_players_data:
                 matching_pick = element_to_pick.get(live_player.player_fpl_tracker_id)
-
                 static_player = static_players_dict.get(live_player.player_fpl_tracker_id)
-                if static_player:
-                    combined_player = {
-                        "fpl_tracker_id": static_player.fpl_tracker_id,
-                        "first_name": static_player.first_name,
-                        "second_name": static_player.second_name,
-                        "web_name": static_player.web_name,
-                        "position": static_player.player_type,
-                        "price": static_player.price,
-                        "status": static_player.status,
-                        "minutes": live_player.minutes,
-                        "total_points": live_player.total_points,
-                        "assists": live_player.assists,
-                        "goals_scored": live_player.goals_scored,
-                        "own_goals": live_player.own_goals,
-                        "yellow_cards": live_player.yellow_cards,
-                        "red_cards": live_player.red_cards,
-                        "bps_points": live_player.bps_points,
-                        "team_id": live_player.team_id,
-                        "is_captain": matching_pick.get("is_captain", False) if matching_pick else False,
-                        "is_vice_captain": matching_pick.get("is_vice_captain", False) if matching_pick else False,
-                        "multiplier": matching_pick.get("multiplier", 1) if matching_pick else 1,
-                        "team_position": matching_pick.get("position", 0) if matching_pick else 0
-                    }
-                    combined_players_data.append(combined_player)
-                else:
-                    # Handle cases where static data is missing
-                    combined_player = {
-                        "fpl_tracker_id": live_player.player_fpl_tracker_id,
-                        "first_name": "Unknown",
-                        "second_name": "Unknown",
-                        "web_name": "Unknown",
-                        "minutes": live_player.minutes,
-                        "total_points": live_player.total_points,
-                        "assists": live_player.assists,
-                        "goals_scored": live_player.goals_scored,
-                        "own_goals": live_player.own_goals,
-                        "yellow_cards": live_player.yellow_cards,
-                        "red_cards": live_player.red_cards,
-                        "bps_points": live_player.bps_points,
-                        "team_id": live_player.team_id,
-                    }                   
-                    combined_players_data.append(combined_player)
+                
+                combined_player = {
+                    "fpl_tracker_id": static_player.fpl_tracker_id,
+                    "first_name": static_player.first_name,
+                    "second_name": static_player.second_name,
+                    "web_name": static_player.web_name,
+                    "position": static_player.player_type,
+                    "price": static_player.price,
+                    "status": static_player.status,
+                    "minutes": live_player.minutes,
+                    "total_points": live_player.total_points,
+                    "assists": live_player.assists,
+                    "goals_scored": live_player.goals_scored,
+                    "own_goals": live_player.own_goals,
+                    "yellow_cards": live_player.yellow_cards,
+                    "red_cards": live_player.red_cards,
+                    "bps_points": live_player.bps_points,
+                    "team_id": live_player.team_id,
+                    "is_captain": matching_pick.get("is_captain", False) if matching_pick else False,
+                    "is_vice_captain": matching_pick.get("is_vice_captain", False) if matching_pick else False,
+                    "multiplier": matching_pick.get("multiplier", 1) if matching_pick else 1,
+                    "team_position": matching_pick.get("position", 0) if matching_pick else 0
+                }
+                combined_players_data.append(combined_player)
+                
 
             return combined_players_data
 
