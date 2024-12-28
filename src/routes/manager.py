@@ -11,12 +11,12 @@ async def get_manager(db: DB, manager_id: int):
     Get the manager
     """
 
-    # TODO: Add Validation - Check if the manager exists - if not, return 404
-
     # now THIS is what I call validation
+    if manager_id <= 0:
+        raise HTTPException(status_code=422, detail="Invalid manager_id")
+
     gameweek = await crud.get_current_gameweek(db)
     if not gameweek:
-    # log something like: "No current gameweek found"
         raise HTTPException(status_code=404, detail="No current gameweek found")
 
     try:
