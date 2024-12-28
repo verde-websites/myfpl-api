@@ -3,6 +3,9 @@ import json
 from fastapi import HTTPException
 from ..middleware import DB
 from .. import crud
+import logging
+
+logger = logging.getLogger(__name__)
 
 async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int):
     """
@@ -43,6 +46,23 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
                 matching_pick = element_to_pick.get(live_player.player_fpl_tracker_id)
                 static_player = static_players_dict.get(live_player.player_fpl_tracker_id)
                 
+                # Check Input type validation before calculation- probably should be done for everything that we return, but yeah cba.
+                if not isinstance(live_player.total_points, int):
+                    logger.error(f"Invalid 'total_points': Expected int, got {type(live_player.total_points).__name__}")
+                    raise HTTPException(
+                        status_code=500,
+                        detail="Invalid data format from FPL API: 'total_points' must be an integer."
+                    )
+    
+                multiplier = matching_pick.get("multiplier")
+                if not isinstance(multiplier, int):
+                    raise HTTPException(
+                        status_code=500,
+                        detail=f"Invalid data format from FPL API: 'multiplier' must be an integer, got {type(multiplier).__name__}."
+                    )
+                
+                total_points = live_player.total_points * multiplier
+                
                 combined_player = {
                     "fpl_tracker_id": static_player.fpl_tracker_id,
                     "first_name": static_player.first_name,
@@ -52,7 +72,7 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
                     "price": static_player.price,
                     "status": static_player.status,
                     "minutes": live_player.minutes,
-                    "total_points": live_player.total_points,
+                    "total_points": total_points,
                     "assists": live_player.assists,
                     "goals_scored": live_player.goals_scored,
                     "own_goals": live_player.own_goals,
