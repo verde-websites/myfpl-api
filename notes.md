@@ -9,4 +9,4 @@ DB Stuff:
 
 General:
 - Add versioning to endpoints
-- Add "inbound" data model validation for each FPL endpoint we use 
+- Add more data validation to FPL schemas for FPL API endpoints
