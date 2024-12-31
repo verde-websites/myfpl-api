@@ -114,7 +114,7 @@
   gameweek_number: 17
   name: Gameweek 17
   transfer_deadline: 2024-12-21 11:00:00+00:00
-  gameweek_active: true
+  gameweek_active: false
   gameweek_finished: true
   data_checked: true
 - id: 18
@@ -122,13 +122,13 @@
   name: Gameweek 18
   transfer_deadline: 2024-12-26 11:00:00+00:00
   gameweek_active: false
-  gameweek_finished: false
-  data_checked: false
+  gameweek_finished: true
+  data_checked: true
 - id: 19
   gameweek_number: 19
   name: Gameweek 19
   transfer_deadline: 2024-12-29 13:00:00+00:00
-  gameweek_active: false
+  gameweek_active: true
   gameweek_finished: false
   data_checked: false
 - id: 20

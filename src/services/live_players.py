@@ -1,3 +1,4 @@
+import pprint
 import httpx
 import json
 from fastapi import HTTPException
@@ -34,8 +35,12 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
 
             # Query Live Data from Database
             live_players_data = await crud.get_player_fixtures(db, gameweek_id, player_ids)
+            if not live_players_data:
+                logger.error("Player Fixture Query Failed. Gameweek updating or problem with current gameweeks data.")
             # Query Static Data from Database
             static_players_data = await crud.get_players(db, player_ids)
+            if not static_players_data:
+                logger.error("Get Players Query Failed")
 
             # Combine Live and Static Data
             static_players_dict = {player.fpl_tracker_id: player for player in static_players_data}
@@ -91,5 +96,5 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
             return combined_players_data
 
         except httpx.RequestError as e:
-            raise HTTPException(status_code=500, detail=f"Request to FPL API failed: {e}")
-    
+            logger.error(f"Request to FPL API failed: {e}")
+            raise HTTPException(status_code=500, detail="Internal Server Error.")    
