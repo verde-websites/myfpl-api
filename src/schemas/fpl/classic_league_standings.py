@@ -3,14 +3,14 @@ from typing import List, Optional, Any
 
 class Entry(BaseModel):
   id: int
-  event_total: int
-  player_name: str
-  rank: int
-  last_rank: int
+  gameweek_total: int = Field(alias="event_total")
+  manager_name: str = Field(alias="player_name")
+  league_position: int = Field(alias="rank")
+  previous_league_position: int = Field(alias="last_rank")
   rank_sort: int
-  total: int
-  entry: int
-  entry_name: str
+  total_points: int = Field(alias="total")
+  manager_id: int = Field(alias="entry")
+  team_name: str = Field(alias="entry_name")
   has_played: bool
 
 class NewEntries(BaseModel):
