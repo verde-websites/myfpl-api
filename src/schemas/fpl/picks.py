@@ -9,7 +9,7 @@ class AutomaticSub(BaseModel):
 
 class Picks(BaseModel):
     fpl_tracker_id: int = Field(alias="element")
-    position: int
+    team_order: int = Field(alias="position")
     multiplier: int
     is_captain: bool
     is_vice_captain: bool
@@ -19,12 +19,12 @@ class Entry(BaseModel):
     event: int
     points: int
     total_points: int
-    rank: int
+    gameweek_rank: int = Field(alias="rank")
     rank_sort: int
     overall_rank: int
     percentile_rank: int
     bank: int
-    value: int
+    team_value: int = Field(alias="value")
     event_transfers: int
     event_transfers_cost: int
     points_on_bench: int

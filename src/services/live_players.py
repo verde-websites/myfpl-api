@@ -7,7 +7,7 @@ from src.schemas.fpl.picks import PicksFPLResponse
 from ..middleware import DB
 from .. import crud
 import logging
-from curl_cffi import requests 
+from curl_cffi import CurlError, requests 
 from sqlalchemy.ext.asyncio import AsyncSession
 
 logger = logging.getLogger(__name__)
@@ -21,7 +21,8 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
     endpoint = f"{base_url}{manager_id}/event/{gameweek_id}/picks/"
 
     try:
-        response = requests.Session().get(endpoint, timeout=10.0)
+        session = requests.Session()
+        response = session.get(endpoint, timeout=10.0)
         response.raise_for_status()  # Raises HTTPError for bad responses
 
         try:
@@ -64,7 +65,7 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
                     detail="Invalid data format from FPL API: 'total_points' must be an integer."
                 )
 
-            multiplier = matching_pick.get("multiplier")
+            multiplier = matching_pick.multiplier
             if not isinstance(multiplier, int):
                 raise HTTPException(
                     status_code=500,
@@ -90,16 +91,16 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
                 "red_cards": live_player.red_cards,
                 "bps_points": live_player.bps_points,
                 "team_id": live_player.team_id,
-                "is_captain": matching_pick.get("is_captain", False) if matching_pick else False,
-                "is_vice_captain": matching_pick.get("is_vice_captain", False) if matching_pick else False,
-                "multiplier": matching_pick.get("multiplier", 1) if matching_pick else 1,
-                "team_position": matching_pick.get("position", 0) if matching_pick else 0
+                "is_captain": matching_pick.is_captain if matching_pick else False,
+                "is_vice_captain": matching_pick.is_vice_captain if matching_pick else False,
+                "multiplier": matching_pick.multiplier if matching_pick else 1,
+                "team_order": matching_pick.team_order if matching_pick else 0
             }
             combined_players_data.append(combined_player)
             
 
         return combined_players_data
 
-    except httpx.RequestError as e:
+    except CurlError as e:
         logger.error(f"Request to FPL API failed: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error.")    

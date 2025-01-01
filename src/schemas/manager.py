@@ -58,7 +58,7 @@ class Players(BaseModel):
     is_captain: bool
     is_vice_captain: bool
     multiplier: int
-    team_position: int
+    team_order: int
 
 class GetManagerResponse(BaseModel):
     metadata: Metadata

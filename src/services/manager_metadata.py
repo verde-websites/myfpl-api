@@ -1,7 +1,8 @@
 import json
-import httpx
-import asyncio
 from fastapi import HTTPException
+from curl_cffi import requests, CurlError
+from src.schemas.fpl.entry import EntryFPLResponse
+from src.schemas.fpl.picks import PicksFPLResponse
 
 async def get_manager_metadata(manager_id: int, gameweek_id: int):
     """
@@ -13,49 +14,55 @@ async def get_manager_metadata(manager_id: int, gameweek_id: int):
         "picks": f"{base_url}{manager_id}/event/{gameweek_id}/picks/"
     }
 
-    async with httpx.AsyncClient() as client:
+    try:
+        session = requests.Session()
+        
+        # Fetch manager data
+        response_manager = session.get(endpoints["manager"], timeout=10.0)
+        response_manager.raise_for_status()
+        
+        # Fetch picks data
+        response_picks = session.get(endpoints["picks"], timeout=10.0)
+        response_picks.raise_for_status()
+
         try:
-            tasks = [client.get(url, timeout=10.0) for url in endpoints.values()]
-            responses = await asyncio.gather(*tasks)
-            responses[0].raise_for_status()  # Raises HTTPError for bad responses
-            responses[1].raise_for_status()  # Raises HTTPError for bad responses
+            manager_json = response_manager.json()
+            picks_json = response_picks.json()
+            manager_data = EntryFPLResponse(**manager_json)
+            picks_data = PicksFPLResponse(**picks_json)
+        except json.JSONDecodeError as json_err:
+            # Log the response content for debugging
+            error_content_manager = response_manager.text
+            error_content_picks = response_picks.text
 
-            try:
-                manager_data = responses[0].json()
-                picks_data = responses[1].json()
-            except json.JSONDecodeError as json_err:
-                # Log the response content for debugging
-                error_content_manager = responses[0].text
-                error_content_picks = responses[1].text
-
-                raise HTTPException(
-                    status_code=500,
-                   detail=(
-                        f"JSON decoding failed: {json_err}. "
-                        f"Manager response content: {error_content_manager}. "
-                        f"Picks response content: {error_content_picks}."
-                    )
+            raise HTTPException(
+                status_code=500,
+                detail=(
+                    f"JSON decoding failed: {json_err}. "
+                    f"Manager response content: {error_content_manager}. "
+                    f"Picks response content: {error_content_picks}."
                 )
+            )
 
-            first_name = manager_data.get("player_first_name", "")
-            last_name = manager_data.get("player_last_name", "")
-            manager_name = f"{first_name} {last_name}".strip()
+        first_name = manager_data.player_first_name
+        last_name = manager_data.player_last_name
+        manager_name = f"{first_name} {last_name}".strip()
 
-            metadata = {
-                "id": manager_data.get("id"),
-                "manager_name": manager_name,
-                "team_name": manager_data.get("name"),
-                "gameweek_rank": picks_data["entry_history"]["rank"],
-                "overall_rank": picks_data["entry_history"]["overall_rank"],
-                "points": picks_data["entry_history"]["points"],
-                "total_points": picks_data["entry_history"]["total_points"],
-                "team_value": picks_data["entry_history"]["value"],
-                "points_on_bench": picks_data["entry_history"]["points_on_bench"],
-                "bank": picks_data["entry_history"]["bank"],
-                "percentile_rank": picks_data["entry_history"]["percentile_rank"]
-            }
+        metadata = {
+            "id": manager_data.id,
+            "manager_name": manager_name,
+            "team_name": manager_data.team_name,
+            "gameweek_rank": picks_data.entry_history.gameweek_rank,
+            "overall_rank": picks_data.entry_history.overall_rank,
+            "points": picks_data.entry_history.points,
+            "total_points": picks_data.entry_history.total_points,
+            "team_value": picks_data.entry_history.team_value,
+            "points_on_bench": picks_data.entry_history.points_on_bench,
+            "bank": picks_data.entry_history.bank,
+            "percentile_rank": picks_data.entry_history.percentile_rank
+        }
 
-            return metadata
-            
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Error fetching manager metadata: {str(e)}")
+        return metadata
+
+    except CurlError as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching manager metadata: {str(e)}")
