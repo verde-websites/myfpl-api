@@ -13,7 +13,7 @@ async def get_manager(db: DB, manager_id: int, gameweek_id: Optional[int] = None
     - **manager_id**: ID of the manager
     - **gameweek_id**: (Optional) ID of the gameweek
     """
-
+    
     # now THIS is what I call validation
     if manager_id <= 0:
         raise HTTPException(status_code=422, detail="Invalid manager_id")
@@ -25,7 +25,6 @@ async def get_manager(db: DB, manager_id: int, gameweek_id: Optional[int] = None
         if not current_gameweek:
             raise HTTPException(status_code=404, detail="No Active Gameweek Found in the Database")
         gameweek = current_gameweek.id
-
 
     try:
         metadata = await services.get_manager_metadata(manager_id, gameweek)
