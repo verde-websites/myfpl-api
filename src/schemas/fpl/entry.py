@@ -1,6 +1,15 @@
 from typing import List, Optional, Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from datetime import datetime
+from enum import Enum
+
+class LeagueScoringEnum(str, Enum):
+    CLASSIC = 'classic'
+    HEAD_TO_HEAD = 'h2h'
+
+class LeagueTypeEnum(str, Enum):
+    GENERAL = 'general'
+    PRIVATE = 'private'
 
 class ActivePhase(BaseModel):
     phase: int
@@ -14,14 +23,14 @@ class ActivePhase(BaseModel):
 
 class ClassicLeague(BaseModel):
     id: int
-    name: str
+    league_name: str = Field(alias="name")
     short_name: Optional[str] = None
     created: datetime
     closed: bool
     rank: Optional[int] = None
     max_entries: Optional[int] = None
-    league_type: str
-    scoring: str
+    league_type: LeagueTypeEnum
+    league_scoring: LeagueScoringEnum = Field(alias="scoring")
     admin_entry: Optional[int] = None
     start_event: int
     entry_can_leave: bool
@@ -30,11 +39,27 @@ class ClassicLeague(BaseModel):
     has_cup: bool
     cup_league: Optional[int] = None
     cup_qualified: Optional[bool] = None
-    rank_count: Optional[int] = None
-    entry_percentile_rank: Optional[int] = None
+    number_of_teams: Optional[int] = Field(default=None, alias="rank_count")
+    percentile_rank: Optional[int] = Field(default=None, alias="entry_percentile_rank")
     active_phases: List[ActivePhase]
-    entry_rank: int
-    entry_last_rank: int
+    rank: int = Field(alias="entry_rank")
+    previous_rank: int = Field(alias="entry_last_rank")
+    @field_validator('league_scoring', mode='before')
+    def map_league_scoring(cls, value):
+        mapping = {
+            'c': LeagueScoringEnum.CLASSIC,
+            'h': LeagueScoringEnum.HEAD_TO_HEAD
+        }
+        return mapping.get(value.lower(), value)
+
+    @field_validator('league_type', mode='before')
+    def map_league_type(cls, value):
+        mapping = {
+            's': LeagueTypeEnum.GENERAL,
+            'x': LeagueTypeEnum.PRIVATE
+        }
+        return mapping.get(value.lower(), value)
+
 
 class CupMatch(BaseModel):
     id: int
