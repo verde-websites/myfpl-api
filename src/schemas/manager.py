@@ -47,7 +47,7 @@ class Players(BaseModel):
     price: int
     status: str
     minutes: int
-    total_points: int
+    points: int
     assists: int
     goals_scored: int
     own_goals: int

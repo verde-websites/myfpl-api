@@ -69,8 +69,6 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
                     detail=f"Invalid data format from FPL API: 'multiplier' must be an integer, got {type(multiplier).__name__}."
                 )
             
-            total_points = live_player.total_points * multiplier
-            
             combined_player = {
                 "fpl_tracker_id": static_player.fpl_tracker_id,
                 "first_name": static_player.first_name,
@@ -80,7 +78,7 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
                 "price": static_player.price,
                 "status": static_player.status,
                 "minutes": live_player.minutes,
-                "total_points": total_points,
+                "points": live_player.total_points,
                 "assists": live_player.assists,
                 "goals_scored": live_player.goals_scored,
                 "own_goals": live_player.own_goals,
