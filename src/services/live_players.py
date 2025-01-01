@@ -1,5 +1,3 @@
-import pprint
-import httpx
 import json
 from fastapi import HTTPException
 
@@ -8,7 +6,6 @@ from ..middleware import DB
 from .. import crud
 import logging
 from curl_cffi import CurlError, requests 
-from sqlalchemy.ext.asyncio import AsyncSession
 
 logger = logging.getLogger(__name__)
 
