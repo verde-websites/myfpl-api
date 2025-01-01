@@ -1,5 +1,3 @@
-# src/models/manager_models.py
-
 from pydantic import BaseModel
 from typing import List, Optional
 

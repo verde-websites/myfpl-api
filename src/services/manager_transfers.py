@@ -1,5 +1,4 @@
 import json
-import httpx
 from curl_cffi import CurlError, requests 
 
 from src import crud
