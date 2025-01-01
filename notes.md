@@ -9,4 +9,3 @@ DB Stuff:
 
 General:
 - Add versioning to endpoints
-- Add more data validation to FPL schemas for FPL API endpoints
