@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import List
 from pydantic import BaseModel, Field, field_validator
 
 class LeagueTypeEnum(str, Enum):
@@ -7,7 +8,7 @@ class LeagueTypeEnum(str, Enum):
 
 class LeagueScoringEnum(str, Enum):
     CLASSIC = 'classic'
-    HEAD_TO_HEAD = 'head_to_head'
+    HEAD_TO_HEAD = 'h2h'
 
 class ClassicLeague(BaseModel):
     id: int
@@ -35,12 +36,12 @@ class ClassicLeague(BaseModel):
         }
         return mapping.get(value.lower(), value)
 
-class HeadToHeadLeague(BaseModel):
+class H2HLeague(BaseModel):
     id: int
 
 class GetManagerLeagueResponse(BaseModel):
-    classic: ClassicLeague
-    h2h: HeadToHeadLeague
+    classic: List[ClassicLeague]
+    h2h: List[H2HLeague]
 
   
   
