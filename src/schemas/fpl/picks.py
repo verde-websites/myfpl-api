@@ -8,7 +8,7 @@ class AutomaticSub(BaseModel):
     gameweek_id: int = Field(alias="event")
 
 class Picks(BaseModel):
-    player_tracker_id: int = Field(alias="element")
+    fpl_tracker_id: int = Field(alias="element")
     position: int
     multiplier: int
     is_captain: bool

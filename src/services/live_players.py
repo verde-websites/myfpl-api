@@ -2,11 +2,20 @@ import pprint
 import httpx
 import json
 from fastapi import HTTPException
+
+from src.schemas.fpl.picks import PicksFPLResponse
 from ..middleware import DB
 from .. import crud
 import logging
+from curl_cffi import requests 
+from sqlalchemy.ext.asyncio import AsyncSession
 
 logger = logging.getLogger(__name__)
+
+def __init__(self, db: AsyncSession):
+    print('Initializing FPL Scraper Client')
+    self.db = db
+    self.account_session = requests.Session()
 
 async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int):
     """
@@ -21,7 +30,8 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
             response.raise_for_status()  # Raises HTTPError for bad responses
 
             try:
-                picks_data = response.json()
+                data = response.json()
+                picks_data = PicksFPLResponse(**data)
             except json.JSONDecodeError as json_err:
                 # Log the response content for debugging
                 error_content = response.text
@@ -31,7 +41,7 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
                 )
 
             # Proceed with processing picks_data as before
-            player_ids = [pick["element"] for pick in picks_data.get("picks", [])]
+            player_ids = [pick.fpl_tracker_id for pick in picks_data.picks]
 
             # Query Live Data from Database
             live_players_data = await crud.get_player_fixtures(db, gameweek_id, player_ids)
@@ -44,7 +54,7 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
 
             # Combine Live and Static Data
             static_players_dict = {player.fpl_tracker_id: player for player in static_players_data}
-            element_to_pick = {pick["element"]: pick for pick in picks_data.get("picks", [])}
+            element_to_pick = {pick.fpl_tracker_id: pick for pick in picks_data.picks}
 
             combined_players_data = []
             for live_player in live_players_data:
