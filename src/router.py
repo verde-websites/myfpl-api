@@ -1,7 +1,7 @@
-
 """Creating the FastAPI router"""
 
 from fastapi import APIRouter
+from typing import Optional
 
 from . import routes
 from . import schemas
@@ -22,8 +22,7 @@ def gameweek_router():
 def manager_router():
     """Build the manager router"""
     router = APIRouter()
-    # TODO: Add response model - response_model=schemas.GetManagerResponse
-    router.get("/{manager_id}")(routes.get_manager)
+    router.get("/{manager_id}", response_model=schemas.GetManagerResponse)(routes.get_manager)
     return router
 
 def build_router():
