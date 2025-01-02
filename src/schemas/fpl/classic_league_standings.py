@@ -1,5 +1,7 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Any
+
+from src.schemas.fpl.entry import LeagueScoringEnum, LeagueTypeEnum
 
 class Entry(BaseModel):
   id: int
@@ -24,21 +26,36 @@ class League(BaseModel):
   created: str
   closed: bool
   max_entries: Optional[int] = None
-  league_type: str
-  scoring: str
+  league_type: LeagueTypeEnum
+  league_scoring: LeagueScoringEnum = Field(alias="scoring")
   admin_entry: int
   start_event: int
   code_privacy: str
   has_cup: bool
   cup_league: Optional[int] = None
   rank: Optional[int] = None
+  @field_validator('league_scoring', mode='before')
+  def map_league_scoring(cls, value):
+      mapping = {
+          'c': LeagueScoringEnum.CLASSIC,
+          'h': LeagueScoringEnum.HEAD_TO_HEAD
+      }
+      return mapping.get(value.lower(), value)
+
+  @field_validator('league_type', mode='before')
+  def map_league_type(cls, value):
+      mapping = {
+          's': LeagueTypeEnum.GENERAL,
+          'x': LeagueTypeEnum.PRIVATE
+      }
+      return mapping.get(value.lower(), value)
 
 class Standings(BaseModel):
     has_next: bool
     page: int
     results: List[Entry]
 
-class ClassicLeagueStandings(BaseModel):
+class ClassicLeagueStandingsResponse(BaseModel):
   new_entries: NewEntries
   last_updated_date: str
   league: League
