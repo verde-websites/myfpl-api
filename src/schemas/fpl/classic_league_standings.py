@@ -16,9 +16,9 @@ class Entry(BaseModel):
   has_played: bool
 
 class NewEntries(BaseModel):
-  has_next: bool
+  has_next: Optional[bool] = False
   page: int
-  results: List[Entry]
+  results: Optional[List[Entry]] = None
 
 class League(BaseModel):
   id: int
@@ -51,12 +51,12 @@ class League(BaseModel):
       return mapping.get(value.lower(), value)
 
 class Standings(BaseModel):
-    has_next: bool
+    has_next: Optional[bool] = False
     page: int
-    results: List[Entry]
+    results: Optional[List[Entry]] = None
 
 class ClassicLeagueStandingsResponse(BaseModel):
   new_entries: NewEntries
-  last_updated_date: str
+  last_updated_data: str
   league: League
   standings: Standings

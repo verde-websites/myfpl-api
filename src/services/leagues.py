@@ -1,7 +1,7 @@
 import json
 from curl_cffi import CurlError, requests 
 
-# from src.schemas.leagues import LeagueMetadata, GetLeagueResponse
+from src.schemas.leagues import LeagueMetadata, GetLeagueResponse
 from src.schemas.fpl.classic_league_standings import ClassicLeagueStandingsResponse, Entry
 from fastapi import HTTPException
 

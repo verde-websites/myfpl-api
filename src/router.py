@@ -29,9 +29,7 @@ def manager_router():
 def league_router():
     """Build the league router"""
     router = APIRouter()
-    # TODO:response_model=schemas.GetLeagueResponse
-    # Leagues Classic Endpoint FPL Side
-    # router.get("/{league_id}")(routes.get_league)
+    router.get("/{league_id}", response_model=schemas.GetLeagueResponse)(routes.get_league)
     return router
 
 def build_router():
