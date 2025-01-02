@@ -20,7 +20,7 @@ class LeagueMetadata(BaseModel):
     league_type: LeagueTypeEnum
     league_scoring: LeagueScoringEnum
     league_owner_id: int
-    first_gameweek: int 
+    gameweek_created_at: int 
     # Not sure what these are used for, can readd if needed
     # code_privacy: Optional[str] = None
     # has_cup: Optional[bool] = None

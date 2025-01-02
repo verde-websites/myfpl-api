@@ -29,7 +29,7 @@ class League(BaseModel):
   league_type: LeagueTypeEnum
   league_scoring: LeagueScoringEnum = Field(alias="scoring")
   league_owner_id: int = Field(alias="admin_entry")
-  first_gameweek: int = Field(alias="start_event")
+  gameweek_created_at: int = Field(alias="start_event")
   code_privacy: str
   has_cup: bool
   cup_league: Optional[int] = None
