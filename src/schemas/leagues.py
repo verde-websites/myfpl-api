@@ -16,11 +16,14 @@ class LeagueMetadata(BaseModel):
     name: str
     created: str
     closed: bool
-    max_entries: Optional[int] = None
     league_type: LeagueTypeEnum
     league_scoring: LeagueScoringEnum
     league_owner_id: int
     gameweek_created_at: int 
+    
+    # Seems to always be null so whats the point of returning it?
+    # max_entries: Optional[int] = None
+
     # Not sure what these are used for, can readd if needed
     # code_privacy: Optional[str] = None
     # has_cup: Optional[bool] = None
