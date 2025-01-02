@@ -6,7 +6,7 @@ from src.schemas.leagues import LeagueMetadata, GetLeagueResponse, Standings
 from src.schemas.fpl.classic_league_standings import ClassicLeagueStandingsResponse
 from fastapi import HTTPException
 
-async def get_league(league_id: int, page: Optional[int] = None):
+async def get_classic_league(league_id: int, page: Optional[int] = None):
     """
     Get the league.
     - **league_id**: ID of the league

@@ -29,7 +29,7 @@ def manager_router():
 def league_router():
     """Build the league router"""
     router = APIRouter()
-    router.get("/{league_id}", response_model=schemas.GetLeagueResponse)(routes.get_league)
+    router.get("/classic/{league_id}", response_model=schemas.GetLeagueResponse)(routes.get_classic_league)
     return router
 
 def build_router():
