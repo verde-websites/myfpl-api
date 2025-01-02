@@ -1,6 +1,6 @@
 import datetime
 from typing import List, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 import datetime
 from typing import List, Optional
@@ -19,12 +19,13 @@ class LeagueMetadata(BaseModel):
     max_entries: Optional[int] = None
     league_type: LeagueTypeEnum
     league_scoring: LeagueScoringEnum
-    admin_entry: Optional[int] = None
-    start_event: Optional[int] = None
-    code_privacy: Optional[str] = None
-    has_cup: Optional[bool] = None
-    cup_league: Optional[int] = None
-    rank: Optional[int] = None
+    league_owner_id: int
+    first_gameweek: int 
+    # Not sure what these are used for, can readd if needed
+    # code_privacy: Optional[str] = None
+    # has_cup: Optional[bool] = None
+    # cup_league: Optional[int] = None
+    # rank: Optional[int] = None
 
 class Team(BaseModel):
   id: int
