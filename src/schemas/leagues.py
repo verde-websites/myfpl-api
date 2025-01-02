@@ -1,9 +1,6 @@
 from typing import List, Optional
 from pydantic import BaseModel, Field, field_validator
 
-
-
-
 class ClassicLeague(BaseModel):
     id: int
     league_name: str
