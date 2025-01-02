@@ -1,17 +1,22 @@
 import json
+from typing import Optional
 from curl_cffi import CurlError, requests 
 
 from src.schemas.leagues import LeagueMetadata, GetLeagueResponse, Standings
 from src.schemas.fpl.classic_league_standings import ClassicLeagueStandingsResponse
 from fastapi import HTTPException
 
-async def get_league(league_id: int):
+async def get_league(league_id: int, page: Optional[int] = None):
     """
     Get the league.
     - **league_id**: ID of the league
+    - **page**: (Optional) Page number for pagination
     """
     base_url = "https://fantasy.premierleague.com/api"
     endpoint = f"{base_url}/leagues-classic/{league_id}/standings/"
+
+    if page:
+        endpoint += f"?page_standings={page}"
 
     try:
         session = requests.Session()
