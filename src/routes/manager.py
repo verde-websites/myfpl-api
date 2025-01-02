@@ -51,7 +51,7 @@ async def get_manager(db: DB, manager_id: int, gameweek_id: Optional[int] = None
     
 async def get_manager_leagues(manager_id: int):
     """
-    Get the manager league
+    Get the manager leagues
     - **manager_id**: ID of the manager
     """
 
