@@ -25,9 +25,21 @@ class LeagueMetadata(BaseModel):
     has_cup: Optional[bool] = None
     cup_league: Optional[int] = None
     rank: Optional[int] = None
+
+class Team(BaseModel):
+  id: int
+  gameweek_total: int 
+  manager_name: str 
+  league_position: int 
+  previous_league_position: int 
+  rank_sort: int
+  total_points: int 
+  manager_id: int 
+  team_name: str 
+  has_played: bool
 class GetLeagueResponse(BaseModel):
     metadata: LeagueMetadata
-    standings: List[Entry]
+    standings: List[Team]
 
   
   
