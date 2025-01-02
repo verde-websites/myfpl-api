@@ -18,9 +18,9 @@ class LeagueMetadata(BaseModel):
     closed: bool
     league_type: LeagueTypeEnum
     league_scoring: LeagueScoringEnum
-    league_owner_id: int
+    league_owner_id: Optional[int]
     gameweek_created_at: int 
-    
+
     # Seems to always be null so whats the point of returning it?
     # max_entries: Optional[int] = None
 
@@ -41,9 +41,15 @@ class Team(BaseModel):
   manager_id: int 
   team_name: str 
   has_played: bool
+
+class Standings(BaseModel):
+    has_next: bool
+    page: int
+    results: List[Team]
+
 class GetLeagueResponse(BaseModel):
     metadata: LeagueMetadata
-    standings: List[Team]
+    standings: Standings
 
   
   

@@ -1,7 +1,7 @@
 import json
 from curl_cffi import CurlError, requests 
 
-from src.schemas.leagues import LeagueMetadata, GetLeagueResponse, Team
+from src.schemas.leagues import LeagueMetadata, GetLeagueResponse, Standings
 from src.schemas.fpl.classic_league_standings import ClassicLeagueStandingsResponse
 from fastapi import HTTPException
 
@@ -24,9 +24,7 @@ async def get_league(league_id: int):
 
             metadata = LeagueMetadata(**classic_league_data.league.model_dump())
 
-            standings = [
-                Team(**entry.model_dump()) for entry in classic_league_data.standings.results
-            ]
+            standings = Standings(**classic_league_data.standings.model_dump())
 
             # Package the transformed data into the response model
             return GetLeagueResponse(

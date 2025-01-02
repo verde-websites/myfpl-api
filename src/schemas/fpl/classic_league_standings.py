@@ -28,7 +28,7 @@ class League(BaseModel):
   max_entries: Optional[int] = None
   league_type: LeagueTypeEnum
   league_scoring: LeagueScoringEnum = Field(alias="scoring")
-  league_owner_id: int = Field(alias="admin_entry")
+  league_owner_id: Optional[int] = Field(alias="admin_entry")
   gameweek_created_at: int = Field(alias="start_event")
   code_privacy: str
   has_cup: bool
