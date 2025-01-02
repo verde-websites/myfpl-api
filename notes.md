@@ -9,3 +9,8 @@ DB Stuff:
 
 General:
 - Add versioning to endpoints
+
+League Endpoints:  
+- Add pagination to the league endpoint for long standings 
+- Make the H2H league output in {manager_id}/leagues endpoint actually do something 
+- View all managers in a league - captain, in play, to start, GW net, month total, total points 

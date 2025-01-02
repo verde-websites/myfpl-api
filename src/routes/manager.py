@@ -48,3 +48,15 @@ async def get_manager(db: DB, manager_id: int, gameweek_id: Optional[int] = None
         raise HTTPException(status_code=500, detail=f"An error occurred while requesting data: {e}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Unexpected error: {e}")
+    
+async def get_manager_leagues(manager_id: int):
+    """
+    Get the manager leagues
+    - **manager_id**: ID of the manager
+    """
+
+    try:
+        leagues = await services.get_manager_leagues(manager_id)
+        return leagues
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Unexpected error: {e}")
