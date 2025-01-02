@@ -2,7 +2,7 @@ import json
 from curl_cffi import CurlError, requests 
 
 from src.schemas.fpl.entry import EntryFPLResponse
-from src.schemas.leagues import ClassicLeague, GetManagerLeagueResponse, H2HLeague
+from src.schemas.manager import ClassicLeague, GetManagerLeagueResponse, H2HLeague
 from fastapi import HTTPException
 
 async def get_manager_leagues(manager_id: int):

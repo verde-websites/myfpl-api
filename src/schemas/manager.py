@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import List, Optional
 
+# MANAGER RESPONSE
 class Metadata(BaseModel):
     id: int
     manager_name: str
@@ -62,3 +63,21 @@ class GetManagerResponse(BaseModel):
     metadata: Metadata
     transfers: Transfers
     players: List[Players]
+
+# MANAGER LEAGUE RESPONSE
+class ClassicLeague(BaseModel):
+    id: int
+    league_name: str
+    league_type: str
+    league_scoring: str
+    number_of_teams: Optional[int] = None
+    rank: Optional[int] = None
+    previous_rank: Optional[int] = None
+    percentile_rank: Optional[int] = None
+
+class H2HLeague(BaseModel):
+    id: int
+
+class GetManagerLeagueResponse(BaseModel):
+    classic: List[ClassicLeague]
+    h2h: List[H2HLeague] 
