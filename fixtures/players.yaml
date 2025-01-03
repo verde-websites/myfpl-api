@@ -16,8 +16,8 @@
   team_id: 3
   status: a
   player_type: 4
-  price: 68
-  form: '3.3'
+  price: 69
+  form: '5.3'
 - id: 226597
   fpl_tracker_id: 3
   first_name: Gabriel
@@ -27,14 +27,14 @@
   status: a
   player_type: 2
   price: 64
-  form: '3.2'
+  form: '3.5'
 - id: 219847
   fpl_tracker_id: 4
   first_name: Kai
   second_name: Havertz
   web_name: Havertz
   team_id: 3
-  status: a
+  status: d
   player_type: 4
   price: 79
   form: '3.7'
@@ -54,10 +54,10 @@
   second_name: Timber
   web_name: J.Timber
   team_id: 3
-  status: a
+  status: s
   player_type: 2
   price: 57
-  form: '5.3'
+  form: '5.5'
 - id: 85955
   fpl_tracker_id: 7
   first_name: Jorge Luiz
@@ -67,7 +67,7 @@
   status: a
   player_type: 3
   price: 47
-  form: '0.7'
+  form: '0.8'
 - id: 440854
   fpl_tracker_id: 8
   first_name: Jakub
@@ -87,7 +87,7 @@
   status: a
   player_type: 3
   price: 68
-  form: '2.7'
+  form: '4.2'
 - id: 499175
   fpl_tracker_id: 12
   first_name: Ethan
@@ -97,7 +97,7 @@
   status: a
   player_type: 3
   price: 45
-  form: '0.5'
+  form: '0.8'
 - id: 184029
   fpl_tracker_id: 13
   first_name: Martin
@@ -107,7 +107,7 @@
   status: a
   player_type: 3
   price: 84
-  form: '2.2'
+  form: '2.5'
 - id: 154561
   fpl_tracker_id: 15
   first_name: David
@@ -117,7 +117,7 @@
   status: a
   player_type: 1
   price: 56
-  form: '3.8'
+  form: '4.2'
 - id: 204480
   fpl_tracker_id: 16
   first_name: Declan
@@ -127,7 +127,7 @@
   status: a
   player_type: 3
   price: 62
-  form: '4.3'
+  form: '4.5'
 - id: 223340
   fpl_tracker_id: 17
   first_name: Bukayo
@@ -147,7 +147,7 @@
   status: a
   player_type: 2
   price: 63
-  form: '6.5'
+  form: '6.8'
 - id: 167199
   fpl_tracker_id: 20
   first_name: Thomas
@@ -157,7 +157,7 @@
   status: a
   player_type: 3
   price: 50
-  form: '2.5'
+  form: '3.3'
 - id: 192895
   fpl_tracker_id: 21
   first_name: Kieran
@@ -187,7 +187,7 @@
   status: a
   player_type: 3
   price: 68
-  form: '2.0'
+  form: '2.2'
 - id: 198869
   fpl_tracker_id: 24
   first_name: Benjamin
@@ -207,7 +207,7 @@
   status: a
   player_type: 2
   price: 48
-  form: '0.8'
+  form: '1.0'
 - id: 69752
   fpl_tracker_id: 73
   first_name: Norberto
@@ -216,7 +216,7 @@
   team_id: 3
   status: a
   player_type: 1
-  price: 42
+  price: 41
   form: '0.0'
 - id: 103955
   fpl_tracker_id: 186
@@ -224,7 +224,7 @@
   second_name: Sterling
   web_name: Sterling
   team_id: 3
-  status: d
+  status: i
   player_type: 3
   price: 67
   form: '0.0'
@@ -237,7 +237,7 @@
   status: a
   player_type: 2
   price: 58
-  form: '0.7'
+  form: '0.8'
 - id: 499169
   fpl_tracker_id: 597
   first_name: Myles
@@ -247,7 +247,7 @@
   status: a
   player_type: 3
   price: 45
-  form: '1.2'
+  form: '1.3'
 - id: 195384
   fpl_tracker_id: 633
   first_name: Mikel
@@ -257,7 +257,7 @@
   status: a
   player_type: 3
   price: 60
-  form: '1.2'
+  form: '2.5'
 - id: 498046
   fpl_tracker_id: 638
   first_name: Salah-Eddine
@@ -1077,7 +1077,7 @@
   status: a
   player_type: 2
   price: 46
-  form: '2.5'
+  form: '2.7'
 - id: 440089
   fpl_tracker_id: 89
   first_name: Mikkel
@@ -1087,7 +1087,7 @@
   status: a
   player_type: 3
   price: 50
-  form: '2.7'
+  form: '3.5'
 - id: 183656
   fpl_tracker_id: 90
   first_name: Josh
@@ -1104,10 +1104,10 @@
   second_name: Flekken
   web_name: Flekken
   team_id: 94
-  status: d
+  status: a
   player_type: 1
-  price: 45
-  form: '2.3'
+  price: 44
+  form: '2.5'
 - id: 194010
   fpl_tracker_id: 92
   first_name: Rico
@@ -1137,17 +1137,17 @@
   status: a
   player_type: 3
   price: 49
-  form: '1.2'
+  form: '1.5'
 - id: 207283
   fpl_tracker_id: 95
   first_name: Mathias
   second_name: Jensen
   web_name: Jensen
   team_id: 94
-  status: d
+  status: a
   player_type: 3
   price: 53
-  form: '0.0'
+  form: '0.2'
 - id: 570241
   fpl_tracker_id: 96
   first_name: Kim
@@ -1157,7 +1157,7 @@
   status: a
   player_type: 2
   price: 39
-  form: '0.2'
+  form: '0.3'
 - id: 628204
   fpl_tracker_id: 97
   first_name: Yunus Emre
@@ -1177,7 +1177,7 @@
   status: a
   player_type: 3
   price: 50
-  form: '1.7'
+  form: '2.0'
 - id: 446008
   fpl_tracker_id: 99
   first_name: Bryan
@@ -1186,15 +1186,15 @@
   team_id: 94
   status: a
   player_type: 3
-  price: 76
-  form: '4.8'
+  price: 77
+  form: '6.0'
 - id: 51927
   fpl_tracker_id: 100
   first_name: Ben
   second_name: Mee
   web_name: Mee
   team_id: 94
-  status: d
+  status: i
   player_type: 2
   price: 42
   form: '1.0'
@@ -1207,7 +1207,7 @@
   status: a
   player_type: 3
   price: 48
-  form: '2.0'
+  form: '2.2'
 - id: 428580
   fpl_tracker_id: 102
   first_name: Frank
@@ -1247,7 +1247,7 @@
   status: a
   player_type: 2
   price: 43
-  form: '1.7'
+  form: '1.8'
 - id: 513418
   fpl_tracker_id: 106
   first_name: Kevin
@@ -1257,7 +1257,7 @@
   status: a
   player_type: 3
   price: 51
-  form: '3.2'
+  form: '3.3'
 - id: 502500
   fpl_tracker_id: 107
   first_name: Igor Thiago
@@ -1297,7 +1297,7 @@
   status: a
   player_type: 4
   price: 62
-  form: '2.3'
+  form: '2.7'
 - id: 508395
   fpl_tracker_id: 111
   first_name: Yehor
@@ -1307,7 +1307,7 @@
   status: a
   player_type: 3
   price: 44
-  form: '1.0'
+  form: '1.3'
 - id: 48760
   fpl_tracker_id: 112
   first_name: Mathias
@@ -1324,7 +1324,7 @@
   second_name: Freitas Gouveia Carvalho
   web_name: Carvalho
   team_id: 94
-  status: a
+  status: d
   player_type: 3
   price: 46
   form: '0.8'
@@ -1334,10 +1334,10 @@
   second_name: van den Berg
   web_name: Van den Berg
   team_id: 94
-  status: d
+  status: a
   player_type: 2
   price: 41
-  form: '0.3'
+  form: '0.5'
 - id: 591357
   fpl_tracker_id: 602
   first_name: Ryan
@@ -1387,7 +1387,7 @@
   status: a
   player_type: 3
   price: 45
-  form: '0.5'
+  form: '0.7'
 - id: 622536
   fpl_tracker_id: 705
   first_name: Benjamin
@@ -1466,7 +1466,7 @@
   team_id: 36
   status: a
   player_type: 2
-  price: 44
+  price: 43
   form: '2.2'
 - id: 474120
   fpl_tracker_id: 121
@@ -1494,7 +1494,7 @@
   second_name: Ferguson
   web_name: Ferguson
   team_id: 36
-  status: d
+  status: i
   player_type: 4
   price: 55
   form: '0.8'
@@ -1734,7 +1734,7 @@
   second_name: Webster
   web_name: Webster
   team_id: 36
-  status: d
+  status: a
   player_type: 2
   price: 43
   form: '0.0'
@@ -1744,7 +1744,7 @@
   second_name: Welbeck
   web_name: Welbeck
   team_id: 36
-  status: d
+  status: i
   player_type: 4
   price: 55
   form: '0.2'
@@ -1814,7 +1814,7 @@
   second_name: Kadioglu
   web_name: F.Kadıoğlu
   team_id: 36
-  status: d
+  status: i
   player_type: 2
   price: 45
   form: '0.0'
@@ -2314,10 +2314,10 @@
   second_name: Chalobah
   web_name: Chalobah
   team_id: 31
-  status: a
+  status: n
   player_type: 2
   price: 44
-  form: '5.3'
+  form: '5.2'
 - id: 466117
   fpl_tracker_id: 190
   first_name: Naouirou
@@ -2337,7 +2337,7 @@
   status: a
   player_type: 3
   price: 49
-  form: '0.7'
+  form: '0.8'
 - id: 427623
   fpl_tracker_id: 194
   first_name: Chris
@@ -2347,7 +2347,7 @@
   status: a
   player_type: 2
   price: 44
-  form: '0.5'
+  form: '0.4'
 - id: 515621
   fpl_tracker_id: 195
   first_name: Chadi
@@ -2387,7 +2387,7 @@
   status: a
   player_type: 3
   price: 66
-  form: '3.5'
+  form: '3.0'
 - id: 209036
   fpl_tracker_id: 200
   first_name: Marc
@@ -2397,7 +2397,7 @@
   status: a
   player_type: 2
   price: 45
-  form: '2.0'
+  form: '1.2'
 - id: 172649
   fpl_tracker_id: 201
   first_name: Dean
@@ -2407,7 +2407,7 @@
   status: a
   player_type: 1
   price: 45
-  form: '3.2'
+  form: '2.4'
 - id: 156074
   fpl_tracker_id: 202
   first_name: Rob
@@ -2427,7 +2427,7 @@
   status: a
   player_type: 3
   price: 49
-  form: '3.8'
+  form: '4.2'
 - id: 209400
   fpl_tracker_id: 205
   first_name: Daichi
@@ -2437,7 +2437,7 @@
   status: a
   player_type: 3
   price: 51
-  form: '0.8'
+  form: '1.0'
 - id: 152551
   fpl_tracker_id: 206
   first_name: Jefferson
@@ -2447,7 +2447,7 @@
   status: a
   player_type: 3
   price: 48
-  form: '2.0'
+  form: '2.2'
 - id: 231747
   fpl_tracker_id: 207
   first_name: Jean-Philippe
@@ -2457,7 +2457,7 @@
   status: a
   player_type: 4
   price: 72
-  form: '2.8'
+  form: '1.8'
 - id: 536694
   fpl_tracker_id: 208
   first_name: Matheus
@@ -2487,7 +2487,7 @@
   status: a
   player_type: 2
   price: 48
-  form: '5.0'
+  form: '4.8'
 - id: 247348
   fpl_tracker_id: 211
   first_name: Daniel
@@ -2497,7 +2497,7 @@
   status: a
   player_type: 2
   price: 47
-  form: '3.7'
+  form: '3.2'
 - id: 531989
   fpl_tracker_id: 212
   first_name: David
@@ -2567,7 +2567,7 @@
   status: a
   player_type: 3
   price: 59
-  form: '5.5'
+  form: '6.2'
 - id: 574398
   fpl_tracker_id: 644
   first_name: Franco
@@ -2617,7 +2617,7 @@
   status: a
   player_type: 2
   price: 45
-  form: '4.2'
+  form: '3.4'
 - id: 590012
   fpl_tracker_id: 666
   first_name: Caleb
@@ -2694,7 +2694,7 @@
   second_name: Coleman
   web_name: Coleman
   team_id: 11
-  status: d
+  status: i
   player_type: 2
   price: 43
   form: '0.4'
@@ -3106,7 +3106,7 @@
   team_id: 54
   status: a
   player_type: 4
-  price: 55
+  price: 56
   form: '3.7'
 - id: 82514
   fpl_tracker_id: 253
@@ -3136,7 +3136,7 @@
   team_id: 54
   status: a
   player_type: 2
-  price: 49
+  price: 50
   form: '4.0'
 - id: 490146
   fpl_tracker_id: 256
@@ -3277,7 +3277,7 @@
   status: a
   player_type: 2
   price: 40
-  form: '1.0'
+  form: '1.2'
 - id: 149929
   fpl_tracker_id: 264
   first_name: Wes
@@ -3287,7 +3287,7 @@
   status: a
   player_type: 3
   price: 48
-  form: '1.7'
+  form: '1.6'
 - id: 196411
   fpl_tracker_id: 265
   first_name: Conor
@@ -3297,7 +3297,7 @@
   status: a
   player_type: 3
   price: 51
-  form: '2.5'
+  form: '2.8'
 - id: 232228
   fpl_tracker_id: 266
   first_name: Harry
@@ -3307,7 +3307,7 @@
   status: a
   player_type: 2
   price: 40
-  form: '0.7'
+  form: '0.4'
 - id: 455084
   fpl_tracker_id: 267
   first_name: Leif
@@ -3327,7 +3327,7 @@
   status: a
   player_type: 4
   price: 56
-  form: '2.8'
+  form: '3.0'
 - id: 214964
   fpl_tracker_id: 269
   first_name: George
@@ -3347,7 +3347,7 @@
   status: a
   player_type: 2
   price: 39
-  form: '1.5'
+  form: '1.6'
 - id: 167191
   fpl_tracker_id: 271
   first_name: Marcus
@@ -3387,7 +3387,7 @@
   status: a
   player_type: 3
   price: 52
-  form: '3.0'
+  form: '3.2'
 - id: 222018
   fpl_tracker_id: 275
   first_name: Ben
@@ -3397,7 +3397,7 @@
   status: a
   player_type: 2
   price: 39
-  form: '1.0'
+  form: '1.2'
 - id: 94926
   fpl_tracker_id: 276
   first_name: Freddie
@@ -3427,7 +3427,7 @@
   status: a
   player_type: 3
   price: 49
-  form: '1.5'
+  form: '1.4'
 - id: 246265
   fpl_tracker_id: 279
   first_name: Corrie
@@ -3457,7 +3457,7 @@
   status: a
   player_type: 3
   price: 48
-  form: '2.0'
+  form: '2.2'
 - id: 180804
   fpl_tracker_id: 282
   first_name: Axel
@@ -3477,7 +3477,7 @@
   status: a
   player_type: 1
   price: 43
-  form: '1.5'
+  form: '1.8'
 - id: 220583
   fpl_tracker_id: 284
   first_name: Luke
@@ -3487,7 +3487,7 @@
   status: a
   player_type: 2
   price: 40
-  form: '1.3'
+  form: '1.6'
 - id: 155405
   fpl_tracker_id: 359
   first_name: Kalvin
@@ -3497,7 +3497,7 @@
   status: a
   player_type: 3
   price: 48
-  form: '0.7'
+  form: '0.8'
 - id: 232917
   fpl_tracker_id: 568
   first_name: Arijanet
@@ -3516,7 +3516,7 @@
   team_id: 40
   status: a
   player_type: 2
-  price: 40
+  price: 39
   form: '0.0'
 - id: 172453
   fpl_tracker_id: 611
@@ -3527,7 +3527,7 @@
   status: a
   player_type: 3
   price: 58
-  form: '1.2'
+  form: '1.4'
 - id: 454667
   fpl_tracker_id: 619
   first_name: Jens
@@ -3547,7 +3547,7 @@
   status: a
   player_type: 2
   price: 41
-  form: '1.8'
+  form: '2.0'
 - id: 443261
   fpl_tracker_id: 631
   first_name: Jack
@@ -3557,7 +3557,7 @@
   status: a
   player_type: 3
   price: 54
-  form: '1.3'
+  form: '1.2'
 - id: 229164
   fpl_tracker_id: 632
   first_name: Chiedozie
@@ -3577,7 +3577,7 @@
   status: a
   player_type: 3
   price: 48
-  form: '1.3'
+  form: '1.0'
 - id: 80146
   fpl_tracker_id: 192
   first_name: Jordan
@@ -3587,7 +3587,7 @@
   status: a
   player_type: 3
   price: 52
-  form: '2.0'
+  form: '2.2'
 - id: 199670
   fpl_tracker_id: 198
   first_name: Odsonne
@@ -3627,7 +3627,7 @@
   status: a
   player_type: 3
   price: 43
-  form: '0.5'
+  form: '0.6'
 - id: 94147
   fpl_tracker_id: 288
   first_name: Conor
@@ -3637,7 +3637,7 @@
   status: a
   player_type: 2
   price: 40
-  form: '1.0'
+  form: '0.8'
 - id: 245419
   fpl_tracker_id: 289
   first_name: Patson
@@ -3647,7 +3647,7 @@
   status: a
   player_type: 4
   price: 48
-  form: '2.0'
+  form: '1.0'
 - id: 96994
   fpl_tracker_id: 290
   first_name: Bobby
@@ -3657,7 +3657,7 @@
   status: a
   player_type: 3
   price: 52
-  form: '2.5'
+  form: '2.8'
 - id: 218218
   fpl_tracker_id: 291
   first_name: Wout
@@ -3667,7 +3667,7 @@
   status: d
   player_type: 2
   price: 40
-  form: '0.5'
+  form: '0.4'
 - id: 549640
   fpl_tracker_id: 292
   first_name: Michael
@@ -3687,7 +3687,7 @@
   status: i
   player_type: 1
   price: 45
-  form: '1.3'
+  form: '0.8'
 - id: 207270
   fpl_tracker_id: 294
   first_name: Daniel
@@ -3706,8 +3706,8 @@
   team_id: 13
   status: a
   player_type: 2
-  price: 43
-  form: '1.0'
+  price: 42
+  form: '0.8'
 - id: 481510
   fpl_tracker_id: 296
   first_name: Victor
@@ -3717,7 +3717,7 @@
   status: a
   player_type: 2
   price: 45
-  form: '1.5'
+  form: '0.8'
 - id: 461584
   fpl_tracker_id: 297
   first_name: Wanya
@@ -3737,7 +3737,7 @@
   status: a
   player_type: 3
   price: 51
-  form: '2.0'
+  form: '2.2'
 - id: 461587
   fpl_tracker_id: 299
   first_name: Kasey
@@ -3747,7 +3747,7 @@
   status: i
   player_type: 3
   price: 47
-  form: '1.7'
+  form: '0.8'
 - id: 203341
   fpl_tracker_id: 300
   first_name: Wilfred
@@ -3757,7 +3757,7 @@
   status: i
   player_type: 3
   price: 49
-  form: '0.5'
+  form: '0.2'
 - id: 473341
   fpl_tracker_id: 301
   first_name: Caleb
@@ -3767,7 +3767,7 @@
   status: a
   player_type: 2
   price: 40
-  form: '0.3'
+  form: '0.4'
 - id: 111931
   fpl_tracker_id: 302
   first_name: Ricardo
@@ -3797,7 +3797,7 @@
   status: a
   player_type: 1
   price: 40
-  form: '0.7'
+  form: '0.8'
 - id: 244619
   fpl_tracker_id: 305
   first_name: Luke
@@ -3817,7 +3817,7 @@
   status: a
   player_type: 4
   price: 55
-  form: '3.5'
+  form: '3.4'
 - id: 93100
   fpl_tracker_id: 307
   first_name: Jannik
@@ -3827,7 +3827,7 @@
   status: a
   player_type: 2
   price: 40
-  form: '0.2'
+  form: '0.0'
 - id: 95463
   fpl_tracker_id: 308
   first_name: Danny
@@ -3837,7 +3837,7 @@
   status: a
   player_type: 1
   price: 40
-  form: '0.3'
+  form: '0.4'
 - id: 157668
   fpl_tracker_id: 309
   first_name: Harry
@@ -3847,7 +3847,7 @@
   status: a
   player_type: 3
   price: 45
-  form: '0.8'
+  form: '1.0'
 - id: 209042
   fpl_tracker_id: 501
   first_name: Oliver
@@ -3856,8 +3856,8 @@
   team_id: 13
   status: a
   player_type: 3
-  price: 48
-  form: '0.7'
+  price: 47
+  form: '0.8'
 - id: 531442
   fpl_tracker_id: 570
   first_name: Abdul
@@ -3897,7 +3897,7 @@
   status: a
   player_type: 3
   price: 48
-  form: '3.7'
+  form: '1.6'
 - id: 531997
   fpl_tracker_id: 694
   first_name: Henry
@@ -3954,7 +3954,7 @@
   second_name: Bradley
   web_name: Bradley
   team_id: 14
-  status: i
+  status: d
   player_type: 2
   price: 47
   form: '0.0'
@@ -4066,7 +4066,7 @@
   team_id: 14
   status: a
   player_type: 1
-  price: 43
+  price: 42
   form: '0.4'
 - id: 204716
   fpl_tracker_id: 326
@@ -4074,7 +4074,7 @@
   second_name: Konaté
   web_name: Konaté
   team_id: 14
-  status: i
+  status: d
   player_type: 2
   price: 51
   form: '0.0'
@@ -4516,7 +4516,7 @@
   team_id: 43
   status: a
   player_type: 3
-  price: 65
+  price: 64
   form: '1.5'
 - id: 476369
   fpl_tracker_id: 626
@@ -4596,7 +4596,7 @@
   team_id: 1
   status: a
   player_type: 3
-  price: 54
+  price: 53
   form: '4.2'
 - id: 467169
   fpl_tracker_id: 365
@@ -5016,7 +5016,7 @@
   team_id: 4
   status: a
   player_type: 2
-  price: 47
+  price: 48
   form: '7.0'
 - id: 153127
   fpl_tracker_id: 400
@@ -5266,7 +5266,7 @@
   team_id: 17
   status: a
   player_type: 2
-  price: 44
+  price: 43
   form: '0.2'
 - id: 159506
   fpl_tracker_id: 422
@@ -5276,7 +5276,7 @@
   team_id: 17
   status: a
   player_type: 2
-  price: 51
+  price: 52
   form: '5.5'
 - id: 215379
   fpl_tracker_id: 423
@@ -5386,7 +5386,7 @@
   team_id: 17
   status: a
   player_type: 3
-  price: 63
+  price: 64
   form: '6.7'
 - id: 209046
   fpl_tracker_id: 434
@@ -5486,7 +5486,7 @@
   team_id: 17
   status: a
   player_type: 1
-  price: 48
+  price: 49
   form: '4.5'
 - id: 114241
   fpl_tracker_id: 444
@@ -6136,7 +6136,7 @@
   team_id: 6
   status: a
   player_type: 3
-  price: 64
+  price: 65
   form: '5.2'
 - id: 200826
   fpl_tracker_id: 493
@@ -6397,7 +6397,7 @@
   status: a
   player_type: 2
   price: 46
-  form: '3.2'
+  form: '3.6'
 - id: 213999
   fpl_tracker_id: 511
   first_name: Edson
@@ -6407,7 +6407,7 @@
   status: a
   player_type: 3
   price: 50
-  form: '1.5'
+  form: '1.6'
 - id: 57531
   fpl_tracker_id: 512
   first_name: Michail
@@ -6417,7 +6417,7 @@
   status: i
   player_type: 4
   price: 53
-  form: '0.2'
+  form: '0.0'
 - id: 84182
   fpl_tracker_id: 513
   first_name: Alphonse
@@ -6427,7 +6427,7 @@
   status: a
   player_type: 1
   price: 42
-  form: '0.5'
+  form: '0.6'
 - id: 178186
   fpl_tracker_id: 514
   first_name: Jarrod
@@ -6437,7 +6437,7 @@
   status: i
   player_type: 3
   price: 75
-  form: '5.2'
+  form: '5.8'
 - id: 164555
   fpl_tracker_id: 516
   first_name: Vladimír
@@ -6447,7 +6447,7 @@
   status: a
   player_type: 2
   price: 42
-  form: '0.7'
+  form: '0.8'
 - id: 55459
   fpl_tracker_id: 517
   first_name: Aaron
@@ -6457,7 +6457,7 @@
   status: a
   player_type: 2
   price: 39
-  form: '0.3'
+  form: '0.4'
 - id: 490885
   fpl_tracker_id: 519
   first_name: George
@@ -6477,14 +6477,14 @@
   status: a
   player_type: 2
   price: 44
-  form: '1.7'
+  form: '1.8'
 - id: 37096
   fpl_tracker_id: 521
   first_name: Łukasz
   second_name: Fabiański
   web_name: Fabianski
   team_id: 21
-  status: d
+  status: i
   player_type: 1
   price: 41
   form: '2.2'
@@ -6507,7 +6507,7 @@
   status: a
   player_type: 4
   price: 50
-  form: '0.3'
+  form: '0.2'
 - id: 214048
   fpl_tracker_id: 524
   first_name: Max
@@ -6517,7 +6517,7 @@
   status: a
   player_type: 2
   price: 44
-  form: '1.3'
+  form: '1.4'
 - id: 460842
   fpl_tracker_id: 525
   first_name: Mohammed
@@ -6527,7 +6527,7 @@
   status: a
   player_type: 3
   price: 62
-  form: '4.3'
+  form: '4.8'
 - id: 577114
   fpl_tracker_id: 526
   first_name: Luis Guilherme
@@ -6547,7 +6547,7 @@
   status: a
   player_type: 3
   price: 57
-  form: '2.5'
+  form: '2.8'
 - id: 233963
   fpl_tracker_id: 528
   first_name: Konstantinos
@@ -6557,7 +6557,7 @@
   status: a
   player_type: 2
   price: 44
-  form: '2.2'
+  form: '2.4'
 - id: 210494
   fpl_tracker_id: 529
   first_name: Nayef
@@ -6577,7 +6577,7 @@
   status: a
   player_type: 3
   price: 49
-  form: '2.8'
+  form: '3.0'
 - id: 103192
   fpl_tracker_id: 532
   first_name: Kurt
@@ -6607,7 +6607,7 @@
   status: a
   player_type: 3
   price: 56
-  form: '1.7'
+  form: '1.2'
 - id: 197024
   fpl_tracker_id: 588
   first_name: Guido
@@ -6617,7 +6617,7 @@
   status: a
   player_type: 3
   price: 48
-  form: '0.5'
+  form: '0.6'
 - id: 91889
   fpl_tracker_id: 589
   first_name: Niclas
@@ -6627,7 +6627,7 @@
   status: a
   player_type: 4
   price: 67
-  form: '2.3'
+  form: '1.6'
 - id: 462116
   fpl_tracker_id: 591
   first_name: Jean-Clair
@@ -6637,7 +6637,7 @@
   status: a
   player_type: 2
   price: 42
-  form: '1.5'
+  form: '1.8'
 - id: 518438
   fpl_tracker_id: 643
   first_name: Kaelan
@@ -6657,7 +6657,7 @@
   status: a
   player_type: 3
   price: 50
-  form: '1.2'
+  form: '1.0'
 - id: 536109
   fpl_tracker_id: 677
   first_name: Ollie
@@ -6667,7 +6667,7 @@
   status: a
   player_type: 2
   price: 40
-  form: '0.3'
+  form: '0.4'
 - id: 602903
   fpl_tracker_id: 686
   first_name: Ezra
@@ -6786,7 +6786,7 @@
   team_id: 39
   status: s
   player_type: 4
-  price: 71
+  price: 70
   form: '5.7'
 - id: 60232
   fpl_tracker_id: 542
