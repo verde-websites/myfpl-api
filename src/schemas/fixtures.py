@@ -1,6 +1,7 @@
 
 from pydantic import BaseModel
 
+# Get Fixtures Response
 class Fixture(BaseModel):
     id: int
     minutes: int
