@@ -30,6 +30,7 @@ def fixture_router():
     """Build the fixture router"""
     router = APIRouter()
     router.get("/{gameweek_id}", response_model=schemas.GetFixturesResponse)(routes.get_fixtures)
+    # router.get("/{fixture_id}", response_model=schemas.GetFixtureResponse)(routes.get_fixture)
     return router
 
 def league_router():
