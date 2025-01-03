@@ -10,7 +10,7 @@ from .fpl_scraper_account import get_next_available_fpl_scraper_account
 from .player import get_players
 from .player import get_player_fixtures
 from .gameweek import get_current_gameweek
-from .fixtures import get_fixtures_by_gameweek_id
+from .fixtures import get_fixtures_by_gameweek_id, get_teams_by_ids
 __all__ = [
     "get_season_by_id",
     "get_season_by_name", 
@@ -24,5 +24,6 @@ __all__ = [
     "get_current_gameweek",
     "get_players",
     "get_player_fixtures",
-    "get_fixtures_by_gameweek_id"
+    "get_fixtures_by_gameweek_id",
+    "get_teams_by_ids"
 ]
