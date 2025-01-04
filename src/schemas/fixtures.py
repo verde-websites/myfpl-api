@@ -1,4 +1,5 @@
 
+import datetime
 from pydantic import BaseModel
 
 # Get Fixtures Response
@@ -11,12 +12,12 @@ class Fixture(BaseModel):
     away_team_score: int
     home_team_name: str
     away_team_name: str
+    kickoff_time: datetime.datetime
     # home_team_red_cards: int
     # away_team_red_cards: int
 
     class Config:
         from_attributes = True
-        orm_mode = True
 
 class GetFixturesResponse(BaseModel):
     fixtures: list[Fixture]
