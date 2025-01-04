@@ -37,7 +37,7 @@ async def get_fixtures(db: DB, gameweek_id: int) -> GetFixturesResponse:
         fixture.away_team_name = team_id_to_additional_data.get(fixture.away_team_id)
         fixture.home_team_red_cards = red_cards_dict.get(fixture.id, {}).get(fixture.home_team_id, 0)
         fixture.away_team_red_cards = red_cards_dict.get(fixture.id, {}).get(fixture.away_team_id, 0)
-        
+
     # Convert each manipulated fixture to a Pydantic Fixture model
     fixtures_pydantic: List[Fixture] = [Fixture.model_validate(fixture) for fixture in fixtures_query]
     
