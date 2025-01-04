@@ -8,7 +8,7 @@ from .fpl import (
 from .gameweek import GetGameweekResponse
 from .manager import GetManagerResponse, GetManagerLeagueResponse
 from .leagues import GetLeagueResponse
-
+from .fixtures import GetFixturesResponse
 __all__ = [
     "GetSeasonResponse",
     "PostSeasons",
@@ -19,5 +19,6 @@ __all__ = [
     "GetGameweekResponse",
     "GetManagerResponse",
     "GetManagerLeagueResponse",
-    "GetLeagueResponse"
+    "GetLeagueResponse",
+    "GetFixturesResponse"
 ]

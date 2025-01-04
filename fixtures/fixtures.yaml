@@ -2637,13 +2637,13 @@
   home_team_id: 94
   away_team_id: 3
   kickoff_time: 2025-01-01 17:30:00+00:00
-  minutes: 0
-  finished: false
-  finished_provisional: false
+  minutes: 90
+  finished: true
+  finished_provisional: true
   provisional_start_time: false
-  started: false
-  home_team_score: 0
-  away_team_score: 0
+  started: true
+  home_team_score: 1
+  away_team_score: 3
 - id: 2444668
   fpl_tracker_id: 199
   season_id: 2
