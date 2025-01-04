@@ -129,8 +129,8 @@
   name: Gameweek 19
   transfer_deadline: 2024-12-29 13:00:00+00:00
   gameweek_active: true
-  gameweek_finished: false
-  data_checked: false
+  gameweek_finished: true
+  data_checked: true
 - id: 20
   gameweek_number: 20
   name: Gameweek 20
