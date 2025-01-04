@@ -7,6 +7,10 @@ class Fixture(BaseModel):
     id: int
     minutes: int
     kickoff_time: datetime.datetime
+    started: bool
+    finished: bool
+    finished_provisional: bool
+    provisional_start_time: bool
     home_team_id: int
     away_team_id: int
     home_team_name: str
