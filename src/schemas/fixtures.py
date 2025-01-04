@@ -13,8 +13,8 @@ class Fixture(BaseModel):
     home_team_name: str
     away_team_name: str
     kickoff_time: datetime.datetime
-    # home_team_red_cards: int
-    # away_team_red_cards: int
+    home_team_red_cards: int
+    away_team_red_cards: int
 
     class Config:
         from_attributes = True
