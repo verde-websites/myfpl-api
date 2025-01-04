@@ -10,6 +10,8 @@ async def get_classic_league(league_id: int, page: Optional[int] = None):
     """
     try:
         league = await services.get_classic_league(league_id, page)
+        if not league:
+            raise HTTPException(status_code=404, detail="Something went wrong. No league found.")
         return league
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Unexpected error: {e}")

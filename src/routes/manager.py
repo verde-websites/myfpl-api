@@ -57,6 +57,9 @@ async def get_manager_leagues(manager_id: int):
 
     try:
         leagues = await services.get_manager_leagues(manager_id)
+        if not leagues:
+            raise HTTPException(status_code=404, detail="Something went wrong. No leagues found for this manager.")
         return leagues
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Unexpected error: {e}")
+

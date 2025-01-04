@@ -9,6 +9,8 @@ async def get_fixtures(db: DB, gameweek_id: int):
     """
     try:
         fixtures = await services.get_fixtures(db, gameweek_id)
+        if not fixtures:
+            raise HTTPException(status_code=404, detail="Something went wrong.No fixtures found for this gameweek.")
         return fixtures
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Unexpected error: {e}")
