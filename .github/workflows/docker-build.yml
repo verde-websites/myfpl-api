@@ -51,17 +51,17 @@ jobs:
           if [[ "${{ steps.vars.outputs.env_name }}" == "dev" ]]; then
             # Dev (main branch): build only :latest
             docker build \
-              -t ghcr.io/${{ github.repository }}/myfpl-api:latest \
+              -t ghcr.io/verde-websites/fpl-infra/myfpl-api:latest \
               .
           elif [[ "${{ steps.vars.outputs.env_name }}" == "staging" ]]; then
             # Staging: build environment-SHA tag
             docker build \
-              -t ghcr.io/${{ github.repository }}/myfpl-api:staging-${{ steps.vars.outputs.short_sha }} \
+              -t ghcr.io/verde-websites/fpl-infra/myfpl-api:staging-${{ steps.vars.outputs.short_sha }} \
               .
           elif [[ "${{ steps.vars.outputs.env_name }}" == "production" ]]; then
             # Production: build environment-SHA tag
             docker build \
-              -t ghcr.io/${{ github.repository }}/myfpl-api:production-${{ steps.vars.outputs.short_sha }} \
+              -t ghcr.io/verde-websites/fpl-infra/myfpl-api:production-${{ steps.vars.outputs.short_sha }} \
               .
           fi
 
@@ -69,9 +69,9 @@ jobs:
       - name: Push Docker images
         run: |
           if [[ "${{ steps.vars.outputs.env_name }}" == "dev" ]]; then
-            docker push ghcr.io/${{ github.repository }}/myfpl-api:latest
+            docker push ghcr.io/verde-websites/fpl-infra/myfpl-api:latest
           elif [[ "${{ steps.vars.outputs.env_name }}" == "staging" ]]; then
-            docker push ghcr.io/${{ github.repository }}/myfpl-api:staging-${{ steps.vars.outputs.short_sha }}
+            docker push ghcr.io/verde-websites/fpl-infra/myfpl-api:staging-${{ steps.vars.outputs.short_sha }}
           elif [[ "${{ steps.vars.outputs.env_name }}" == "production" ]]; then
-            docker push ghcr.io/${{ github.repository }}/myfpl-api:production-${{ steps.vars.outputs.short_sha }}
+            docker push ghcr.io/verde-websites/fpl-infra/myfpl-api:production-${{ steps.vars.outputs.short_sha }}
           fi
