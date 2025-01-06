@@ -52,6 +52,7 @@ class Players(BaseModel):
     own_goals: int
     yellow_cards: int
     red_cards: int
+    bonus_points: int
     bps_points: int
     team_id: int
     is_captain: bool
