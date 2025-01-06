@@ -81,6 +81,7 @@ class PlayerFixture(Base):
     penalties_missed: Mapped[int]
     yellow_cards: Mapped[int]
     red_cards: Mapped[int]
+    live_bonus_points: Mapped[int] = mapped_column(nullable=True)
     bonus_points: Mapped[int]
     bps_points: Mapped[int]
     influence: Mapped[float]
