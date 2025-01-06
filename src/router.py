@@ -26,6 +26,13 @@ def manager_router():
     router.get("/{manager_id}/leagues", response_model=schemas.GetManagerLeagueResponse)(routes.get_manager_leagues)
     return router
 
+def fixture_router():
+    """Build the fixture router"""
+    router = APIRouter()
+    router.get("/{gameweek_id}", response_model=schemas.GetFixturesResponse)(routes.get_fixtures)
+    # router.get("/{fixture_id}", response_model=schemas.GetFixtureResponse)(routes.get_fixture)
+    return router
+
 def league_router():
     """Build the league router"""
     router = APIRouter()
@@ -39,4 +46,5 @@ def build_router():
     router.include_router(gameweek_router(), prefix="/api/gameweek", tags=["gameweek"])
     router.include_router(manager_router(), prefix="/api/manager", tags=["manager"])
     router.include_router(league_router(), prefix="/api/league", tags=["league"])
+    router.include_router(fixture_router(), prefix="/api/fixtures", tags=["fixture"])
     return router

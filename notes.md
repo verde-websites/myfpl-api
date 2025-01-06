@@ -9,6 +9,8 @@ DB Stuff:
 
 General:
 - Add versioning to endpoints
+- Evaluate whether its better to have class Config: from_attributes = True in all schemas and use model_validate in services or if its better to do a dump to a dict and pass to the schema directly
+- orm_mode = True may solve a lot of issues with the above bullet point as well
 
 League Endpoints:  
 - Add pagination to the league endpoint for long standings 

@@ -149,7 +149,7 @@ class EntryFPLResponse(BaseModel):
     summary_overall_points: int
     summary_overall_rank: int
     summary_event_points: int
-    summary_event_rank: int
+    summary_event_rank: Optional[int] = None
     current_event: int
     leagues: Leagues
     team_name: str = Field(alias="name")
