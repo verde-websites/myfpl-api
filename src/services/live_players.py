@@ -68,9 +68,7 @@ async def get_live_players_by_gameweek(db: DB, manager_id: int, gameweek_id: int
                     status_code=500,
                     detail=f"Invalid data format from FPL API: 'multiplier' must be an integer, got {type(multiplier).__name__}."
                 )
-            
-            get_live_bonus_points = await crud.get_bonus_points(db, live_player.player_fpl_tracker_id, gameweek_id)
-            
+                        
             combined_player = {
                 "fpl_tracker_id": static_player.fpl_tracker_id,
                 "first_name": static_player.first_name,
