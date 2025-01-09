@@ -24,6 +24,8 @@ cryptography = "^43.0.1"
 pydantic-settings = "^2.5.2"
 curl-cffi = "^0.7.3"
 pyyaml = "^6.0.2"
+apscheduler = "^3.11.0"
+pytz = "^2024.2"
 
 
 [build-system]
